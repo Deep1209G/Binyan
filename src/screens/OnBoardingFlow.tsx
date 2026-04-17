@@ -1,175 +1,198 @@
-import { StyleSheet, View, FlatList, Text } from 'react-native';
-import React, { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  Text,
+  Dimensions,
+} from 'react-native';
+import React, { useState, useRef } from 'react';
 import SelectableItem from '../components/SelectableItem';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ProgressDot from '../components/ProgressDot';
+import GradientButton from '../components/GradientButton';
+
+const { width, height } = Dimensions.get('window');
 
 const OnBoardingFlow = () => {
-  // States
- const [language, setLanguage] = useState<string>("English");
-  const [accountType, setAccountType] = useState<string>("");
-  const [serviceType, setServiceType] = useState<string >("");
+  const [language, setLanguage] = useState('English');
+  const [accountType, setAccountType] = useState('');
+  const [serviceType, setServiceType] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  type ItemData = {
-    render: () => React.ReactNode;
-    key: string;
+  const flatListRef = useRef<FlatList>(null);
+
+  const handleNext = () => {
+    if (currentIndex < DATA.length - 1) {
+      flatListRef.current?.scrollToIndex({
+        index: currentIndex + 1,
+        animated: true,
+      });
+      setCurrentIndex(prev => prev + 1);
+    } else {
+      console.log('Onboarding Complete');
+    }
   };
 
-  const DATA: ItemData[] = [
-
-    // Language
+  const DATA = [
     {
       key: 'language',
       render: () => (
-        <>
-          <Text style={styles.title}>Choose Your Language</Text>
-          <Text style={styles.subtitle}>
-            Select your preferred language to use go my go easy.
-          </Text>
-
-          {/* Options */}
+        <View style={styles.screen}>
           <View>
+            <Text style={styles.title}>Choose Your Language</Text>
+            <Text style={styles.subtitle}>
+              Select your preferred language.
+            </Text>
+
             <SelectableItem
               label="English"
               selected={language === 'English'}
               onPress={() => setLanguage('English')}
-              showLine={true}
+              showLine
             />
             <SelectableItem
               label="Arabic"
               selected={language === 'Arabic'}
               onPress={() => setLanguage('Arabic')}
-              showLine={true}
+              showLine
             />
           </View>
-        </>
+        </View>
       ),
     },
 
-    // Account Type
     {
       key: 'account',
       render: () => (
-        <>
-          <Text style={styles.title}>Choose Your Account Type</Text>
-          <Text style={styles.subtitle}>
-            Tell us who you are, so we can personalize your experience. You can
-            always update this later in settings.
-          </Text>
-
+        <View style={styles.screen}>
           <View>
+            <Text style={styles.title}>Choose Your Account Type</Text>
+
             <SelectableItem
-              icon={<Icon name="person" size={15} color="#FF6A00" />}
+              icon={<Icon name="person" size={18} color="#FF6A00" />}
               label="Individual"
               selected={accountType === 'Individual'}
               onPress={() => setAccountType('Individual')}
-              showLine={true}
+              showLine
             />
 
             <SelectableItem
-              icon={<Icon name="people" size={15} color="#FF6A00" />}
+              icon={<Icon name="people" size={18} color="#FF6A00" />}
               label="Organization"
               selected={accountType === 'Organization'}
               onPress={() => setAccountType('Organization')}
-              showLine={true}
-            />
-
-            <SelectableItem
-              icon={<Icon name="settings" size={15} color="#FF6A00" />}
-              label="Service Provider"
-              selected={accountType === 'Service Provider'}
-              onPress={() => setAccountType('Service Provider')}
-              showLine={true}
+              showLine
             />
           </View>
-        </>
+        </View>
       ),
     },
 
-    // Service Provider
     {
       key: 'service',
       render: () => (
-        <>
+        <View style={styles.screen}>
           <View>
             <Text style={styles.title}>Are you a service provider?</Text>
-            <Text style={styles.subtitle}>
-              Choose how you'd like to continue.
-            </Text>
 
             <View style={styles.row}>
               <SelectableItem
                 variant="card"
-                icon={<Icon name="person" size={16} color="#FF6A00" />}
-                label="Browse Binyan"
-                selected={serviceType === 'Browse Binyan'}
-                onPress={() => setServiceType('Browse Binyan')}
+                icon={<Icon name="person" size={18} color="#FF6A00" />}
+                label="Browse"
+                selected={serviceType === 'Browse'}
+                onPress={() => setServiceType('Browse')}
               />
 
               <SelectableItem
                 variant="card"
-                icon={<Icon name="business" size={16} color="#FF6A00" />}
-                label="Create a Profile"
-                selected={serviceType === 'Create a Profile'}
-                onPress={() => setServiceType('Create a Profile')}
+                icon={<Icon name="business" size={18} color="#FF6A00" />}
+                label="Create Profile"
+                selected={serviceType === 'Create Profile'}
+                onPress={() => setServiceType('Create Profile')}
               />
             </View>
           </View>
-        </>
+        </View>
       ),
     },
 
-    // Onboarding Screen 1
     {
       key: 'on1',
       render: () => (
-        <>
-          <Text style={styles.title}>
-            Turn Your Space into Something Extraordinary
-          </Text>
-          <Text style={styles.subtitle}>
-            Explore design ideas and connect with professionals.
-          </Text>
-        </>
+        <View style={styles.screen}>
+          <View style={styles.centerContent}>
+            <Text style={styles.title}>Welcome to Binyan</Text>
+            <Text style={styles.subtitle}>
+              Discover amazing services near you.
+            </Text>
+          </View>
+        </View>
       ),
     },
 
-    // Onboarding Screen 2
     {
       key: 'on2',
       render: () => (
-        <>
-          <Text style={styles.title}>
-            Plumbers, Electricians & More — All Nearby
-          </Text>
-          <Text style={styles.subtitle}>
-            Find trusted local experts anytime.
-          </Text>
-        </>
+        <View style={styles.screen}>
+          <View style={styles.centerContent}>
+            <Text style={styles.title}>Find Experts</Text>
+            <Text style={styles.subtitle}>
+              Plumbers, electricians & more.
+            </Text>
+          </View>
+        </View>
       ),
     },
 
-    // Onboarding Screen 3
     {
       key: 'on3',
       render: () => (
-        <>
-          <Text style={styles.title}>
-            Plumbers, Electricians & More — All Nearby
-          </Text>
-          <Text style={styles.subtitle}>
-            Find trusted local experts anytime.
-          </Text>
-        </>
+        <View style={styles.screen}>
+          <View style={styles.centerContent}>
+            <Text style={styles.title}>Get Started</Text>
+            <Text style={styles.subtitle}>
+              Let’s begin your journey.
+            </Text>
+          </View>
+        </View>
       ),
     },
   ];
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
         data={DATA}
-        renderItem={({ item }) => <View>{item.render()}</View>}
+        ref={flatListRef}
+        keyExtractor={(item) => item.key}
+        onMomentumScrollEnd={(e) => {
+          const index = Math.round(
+            e.nativeEvent.contentOffset.x / width
+          );
+          setCurrentIndex(index);
+        }}
+        renderItem={({ item }) => (
+          <View style={{ width, height }}>
+            {item.render()}
+          </View>
+        )}
       />
+
+      <View style={styles.bottom}>
+        <ProgressDot total={DATA.length} current={currentIndex} />
+        <GradientButton
+          title={
+            currentIndex === DATA.length - 1
+              ? 'Get Started'
+              : 'Next'
+          }
+          onPress={handleNext}
+        />
+      </View>
     </View>
   );
 };
@@ -177,21 +200,46 @@ const OnBoardingFlow = () => {
 export default OnBoardingFlow;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+
+  screen: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center', // ✅ centered content
+  },
+
+  centerContent: {
+    alignItems: 'center',
+  },
+
   title: {
-    fontSize: 28,
-    fontWeight: 400,
+    fontSize: 26,
+    fontWeight: '600',
   },
+
   subtitle: {
-    fontSize: 15,
+    fontSize: 14,
     color: 'gray',
-    marginTop: 15,
-    marginBottom: 20,
-  },
-  row: {
-    flexDirection: 'row',
     marginTop: 10,
     marginBottom: 20,
   },
+
+  row: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 10,
+  },
+
+  bottom: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 });
-
-

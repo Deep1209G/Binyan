@@ -16,7 +16,7 @@ const OnBoardingScreen3 = ({ navigation }: Props) => {
        book your next project hassle-free."
       currentStep={5}
       totalSteps={6}
-      onNext={() => navigation.navigate("Login")}
+      onNext={() => navigation.navigate("OnBoardingFlow")}
     />
   );
 };
