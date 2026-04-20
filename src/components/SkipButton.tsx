@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import React from 'react';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
+import theme from '../theme';
 
 
 type RootStackParamList = {
@@ -15,7 +16,7 @@ const SkipButton = () => {
 
   return (
     <View style = {styles.wrap}>
-      <Pressable style={styles.button} onPress={handleSkip}>
+      <Pressable onPress={handleSkip}>
         <Text style={styles.text}>Skip</Text>
       </Pressable>
     </View>
@@ -26,13 +27,12 @@ export default SkipButton;
 
 const styles = StyleSheet.create({
   wrap:{
-    marginTop:30,
-    marginLeft:20,
+    marginTop:theme.xxxl,
+    marginLeft:theme.xl,
   },
-  button: {},
-
+ 
   text: {
-    color: '#ff7a00',
+    color: theme.primary,
     fontSize: 20,
   },
 });

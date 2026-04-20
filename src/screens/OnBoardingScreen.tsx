@@ -7,6 +7,7 @@ import ProgressDot from '../components/ProgressDot';
 import GradientButton from '../components/GradientButton';
 import SkipButton from '../components/SkipButton';
 import { RootStackParamList } from '../../App';
+import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
@@ -235,7 +236,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme.background,
     justifyContent: 'flex-end',
   },
 
@@ -250,9 +251,9 @@ const styles = StyleSheet.create({
 
   screen: {
     flex: 1,
-    padding: 20,
+    padding: theme.xl,
     justifyContent: 'flex-end',
-    paddingBottom: 140,
+    paddingBottom: theme.dll,
   },
 
   centerContent: {
@@ -260,7 +261,7 @@ const styles = StyleSheet.create({
   },
 
   titleWrap: {
-    marginBottom: 80,
+    marginBottom: theme.dl,
   },
 
   title: {
@@ -270,22 +271,22 @@ const styles = StyleSheet.create({
 
   subtitle: {
     fontSize: 16,
-    color: 'gray',
-    marginTop: 10,
-    marginBottom: 20,
+    color: theme.textSecondary,
+    marginTop: theme.sm,
+    marginBottom: theme.xl,
   },
 
   row: {
     flexDirection: 'row',
-    gap: 10,
-    marginTop: 10,
+    gap: theme.sm,
+    marginTop: theme.sm,
   },
 
   bottom: {
     position: 'absolute',
-    bottom: 30,
-    left: 20,
-    right: 20,
+    bottom: theme.xxxl,
+    left: theme.xl,
+    right: theme.xl,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { RootStackParamList } from '../../App';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import theme from '../theme';
 
 interface SplashScreenProps {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Splash'>;
@@ -19,7 +20,7 @@ const SplashScreen = ({ navigation }: SplashScreenProps) => {
 
   return (
     <LinearGradient
-      colors={['#e09951', '#ff7a00', '#c70039']}
+      colors={theme.gradient}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
       style={styles.container}
@@ -45,24 +46,24 @@ const styles = StyleSheet.create({
   },
   logoBox: {
     alignItems: 'center',
+     paddingHorizontal: theme.xl,
   },
   logo: {
-    color: '#fff',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    marginBottom: 10,
+    paddingHorizontal: theme.xl,
+    paddingVertical: theme.sm,
+    marginBottom: theme.sm,
   },
   title: {
     fontSize: 40,
-    color: '#fff',
+    color: theme.white,
     fontWeight: 'bold',
   },
   subtitle: {
     fontSize: 7,
-    color: '#fff',
+    color: theme.white,
     opacity: 0.8,
-    marginTop: 5,
+    marginTop: theme.xs,
     textAlign: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: theme.xl,
   },
 });
