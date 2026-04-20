@@ -54,12 +54,12 @@ const styles = StyleSheet.create({
     marginBottom: theme.sm,
   },
   title: {
-    fontSize: 40,
+    fontSize: 55,
     color: theme.white,
     fontWeight: 'bold',
   },
   subtitle: {
-    fontSize: 7,
+    fontSize: 10,
     color: theme.white,
     opacity: 0.8,
     marginTop: theme.xs,

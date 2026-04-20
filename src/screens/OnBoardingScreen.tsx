@@ -111,7 +111,7 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
           <View style={styles.row}>
             <SelectableItem
               variant="card"
-              icon={<Icon name="person" size={18} color="#FF6A00" />}
+              icon={<Icon name="person" size={18} color={theme.primary} />}
               label="Browse"
               selected={serviceType === 'Browse'}
               onPress={() => setServiceType('Browse')}
@@ -119,7 +119,7 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
 
             <SelectableItem
               variant="card"
-              icon={<Icon name="business" size={18} color="#FF6A00" />}
+              icon={<Icon name="business" size={18} color={theme.primary} />}
               label="Create Profile"
               selected={serviceType === 'Create Profile'}
               onPress={() => setServiceType('Create Profile')}

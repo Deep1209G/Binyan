@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
   },
 
   radioInner: {
-    width: 20,
-    height: 20,
+    width: theme.xl,
+    height: theme.xl,
     borderRadius: 10,
     backgroundColor: theme.selected,
     alignItems: "center",
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
 
   // ICON
   iconWrapper: {
-    padding: 8,
+    padding: theme.sm,
     borderRadius: 20,
     backgroundColor: theme.white,
   },
