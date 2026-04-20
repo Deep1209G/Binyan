@@ -1,6 +1,6 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { Pressable, Text, StyleSheet } from 'react-native';
 
 
 interface GradientButtonProps {
@@ -10,7 +10,7 @@ interface GradientButtonProps {
 
 const GradientButton = ({title, onPress}: GradientButtonProps) => {
     return(
-        <TouchableOpacity onPress={onPress}>
+        <Pressable onPress={onPress}>
             <LinearGradient
             colors={["#ff7a00", "#c70039"]}
             style = {styles.button}
@@ -21,7 +21,7 @@ const GradientButton = ({title, onPress}: GradientButtonProps) => {
                     {title}
                 </Text>
             </LinearGradient>
-        </TouchableOpacity>
+        </Pressable>
 
     )
 };
