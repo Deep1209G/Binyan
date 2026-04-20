@@ -11,7 +11,7 @@ interface SplashScreenProps {
 const SplashScreen = ({ navigation }: SplashScreenProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Language');
+      navigation.replace('OnBoardingFlow');
     }, 3000);
 
     return () => clearTimeout(timer);
