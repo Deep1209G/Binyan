@@ -28,21 +28,21 @@ export default ProgressDot;
 const styles = StyleSheet.create({
     container:{
             flexDirection: "row",
-            gap: theme.xs,
+            gap: theme.spacing.xs,
     },
 
     dot:{
          width: 10,
          height: 10,
-         borderRadius: 5,
-         backgroundColor: theme.backgroundDot,
+         borderRadius: theme.radius.md,
+         backgroundColor: theme.colors.backgroundDot,
     },
 
     activeDot:{
-        backgroundColor: theme.primary,
+        backgroundColor: theme.colors.primary,
         width: 10, 
         height:10,
-        borderRadius: 10,
+        borderRadius: theme.radius.md,
     },
 
 })

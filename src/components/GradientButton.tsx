@@ -34,7 +34,7 @@ export default GradientButton;
 
 const styles = StyleSheet.create({
     button:{
-    padding: theme.xl,
+    padding: theme.spacing.xl,
     borderRadius: 20,
     alignItems: "center",
     width:100,
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 
 
     text:{
-    color:theme.white,
+    color:theme.colors.white,
     fontWeight: "600",
     fontSize:18,
     },

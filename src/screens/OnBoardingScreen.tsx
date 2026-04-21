@@ -111,7 +111,7 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
           <View style={styles.row}>
             <SelectableItem
               variant="card"
-              icon={<Icon name="person" size={18} color={theme.primary} />}
+              icon={<Icon name="person" size={18} color={theme.colors.primary} />}
               label="Browse"
               selected={serviceType === 'Browse'}
               onPress={() => setServiceType('Browse')}
@@ -119,7 +119,7 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
 
             <SelectableItem
               variant="card"
-              icon={<Icon name="business" size={18} color={theme.primary} />}
+              icon={<Icon name="business" size={18} color={theme.colors.primary} />}
               label="Create Profile"
               selected={serviceType === 'Create Profile'}
               onPress={() => setServiceType('Create Profile')}
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: theme.background,
+    backgroundColor: theme.colors.background,
     justifyContent: 'flex-end',
   },
 
@@ -251,9 +251,9 @@ const styles = StyleSheet.create({
 
   screen: {
     flex: 1,
-    padding: theme.xl,
+    padding: theme.spacing.xl,
     justifyContent: 'flex-end',
-    paddingBottom: theme.dll,
+    paddingBottom: theme.spacing.dll,
   },
 
   centerContent: {
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   },
 
   titleWrap: {
-    marginBottom: theme.dl,
+    marginBottom: theme.spacing.dl,
   },
 
   title: {
@@ -271,22 +271,22 @@ const styles = StyleSheet.create({
 
   subtitle: {
     fontSize: 16,
-    color: theme.textSecondary,
-    marginTop: theme.sm,
-    marginBottom: theme.xl,
+    color: theme.colors.textSecondary,
+    marginTop: theme.spacing.sm,
+    marginBottom: theme.spacing.xl,
   },
 
   row: {
     flexDirection: 'row',
-    gap: theme.sm,
-    marginTop: theme.sm,
+    gap: theme.spacing.sm,
+    marginTop: theme.spacing.sm,
   },
 
   bottom: {
     position: 'absolute',
-    bottom: theme.xxxl,
-    left: theme.xl,
-    right: theme.xl,
+    bottom: theme.spacing.xxxl,
+    left: theme.spacing.xl,
+    right: theme.spacing.xl,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

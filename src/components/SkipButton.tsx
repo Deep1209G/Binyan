@@ -27,12 +27,12 @@ export default SkipButton;
 
 const styles = StyleSheet.create({
   wrap:{
-    marginTop:theme.xxxl,
-    marginLeft:theme.xl,
+    marginTop:theme.spacing.xxxl,
+    marginLeft:theme.spacing.xl,
   },
  
   text: {
-    color: theme.primary,
+    color: theme.colors.primary,
     fontSize: 20,
   },
 });

@@ -83,20 +83,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: theme.surface,
-    padding: theme.lg,
+    backgroundColor: theme.colors.surface,
+    padding: theme.spacing.lg,
     borderRadius: 30,
-    marginBottom: theme.md,
+    marginBottom: theme.spacing.md,
   },
 
   // CARD STYLE (service provider)
   cardContainer: {
     flex: 1,
     flexDirection: "column", 
-    backgroundColor: theme.surface,
+    backgroundColor: theme.colors.surface,
     borderRadius: 16,
-    padding: theme.lg,
-    marginHorizontal: theme.sm,
+    padding: theme.spacing.lg,
+    marginHorizontal: theme.spacing.sm,
     minHeight: 100,
   },
 
@@ -108,13 +108,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: theme.md,
+    marginBottom: theme.spacing.md,
   },
 
   // TEXT BELOW
   cardText: {
     fontSize: 14,
-    color:theme.textPrimary,
+    color:theme.colors.textPrimary,
   },
 
   // RADIO
@@ -123,45 +123,45 @@ const styles = StyleSheet.create({
     height: 26,
     borderRadius: 15,
     borderWidth: 1,
-    borderColor:theme.border,
-    backgroundColor:theme.border,
+    borderColor:theme.colors.border,
+    backgroundColor:theme.colors.border,
     alignItems: "center",
     justifyContent: "center",
   },
 
   radioOuterSelected: {
-    borderColor: theme.selected,
+    borderColor: theme.colors.selected,
   },
 
   radioInner: {
-    width: theme.xl,
-    height: theme.xl,
+    width: theme.spacing.xl,
+    height: theme.spacing.xl,
     borderRadius: 10,
-    backgroundColor: theme.selected,
+    backgroundColor: theme.colors.selected,
     alignItems: "center",
     justifyContent: "center",
   },
 
   tick: {
-    color: theme.white,
+    color: theme.colors.white,
     fontSize: 11,
     fontWeight: "bold",
   },
 
   // ICON
   iconWrapper: {
-    padding: theme.sm,
+    padding: theme.spacing.sm,
     borderRadius: 20,
-    backgroundColor: theme.white,
+    backgroundColor: theme.colors.white,
   },
 
   // ROW MODE
   line: {
     width: 1,
     height: "100%",
-    backgroundColor: theme.textSecondary,
-    marginLeft: theme.xl,
-    marginRight: theme.md,
+    backgroundColor: theme.colors.textSecondary,
+    marginLeft: theme.spacing.xl,
+    marginRight: theme.spacing.md,
   },
 
   text: {

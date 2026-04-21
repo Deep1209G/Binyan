@@ -46,24 +46,24 @@ const styles = StyleSheet.create({
   },
   logoBox: {
     alignItems: 'center',
-     paddingHorizontal: theme.xl,
+     paddingHorizontal: theme.spacing.xl,
   },
   logo: {
-    paddingHorizontal: theme.xl,
-    paddingVertical: theme.sm,
-    marginBottom: theme.sm,
+    paddingHorizontal: theme.spacing.xl,
+    paddingVertical: theme.spacing.sm,
+    marginBottom: theme.spacing.sm,
   },
   title: {
     fontSize: 55,
-    color: theme.white,
+    color: theme.colors.white,
     fontWeight: 'bold',
   },
   subtitle: {
     fontSize: 10,
-    color: theme.white,
+    color: theme.colors.white,
     opacity: 0.8,
-    marginTop: theme.xs,
+    marginTop: theme.spacing.xs,
     textAlign: 'center',
-    paddingHorizontal: theme.xl,
+    paddingHorizontal: theme.spacing.xl,
   },
 });
