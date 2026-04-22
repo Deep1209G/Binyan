@@ -1,5 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import React from 'react'
+import theme from '../theme';
 
 interface ProgressDotProps {
     total: number;
@@ -27,21 +28,21 @@ export default ProgressDot;
 const styles = StyleSheet.create({
     container:{
             flexDirection: "row",
-            gap: 6,
+            gap: theme.spacing.xs,
     },
 
     dot:{
-         width: 6,
-         height: 6,
-         borderRadius: 3,
-         backgroundColor: "#ccc",
+         width: 10,
+         height: 10,
+         borderRadius: theme.radius.md,
+         backgroundColor: theme.colors.backgroundDot,
     },
 
     activeDot:{
-        backgroundColor: "#FF6A00",
+        backgroundColor: theme.colors.primary,
         width: 10, 
-        height:6,
-        borderRadius: 10,
+        height:10,
+        borderRadius: theme.radius.md,
     },
 
 })

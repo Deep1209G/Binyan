@@ -1,5 +1,6 @@
 import React from "react";
 import { Pressable, Text, View, StyleSheet } from "react-native";
+import theme from "../theme";
 
 interface SelectableItemProps {
   label: string;
@@ -21,14 +22,14 @@ const SelectableItem = ({
   return (
     <Pressable
       style={[
-        variant === "card" ? styles.cardContainer : styles.container, // ✅ FIXED
+        variant === "card" ? styles.cardContainer : styles.container, 
         selected && styles.selectedContainer,
       ]}
       onPress={onPress}
     >
       {variant === "card" ? (
         <>
-          {/* 🔥 TOP ROW */}
+          {/* TOP ROW */}
           <View style={styles.cardTop}>
             {icon && <View style={styles.iconWrapper}>{icon}</View>}
 
@@ -46,7 +47,7 @@ const SelectableItem = ({
             </View>
           </View>
 
-          {/* 🔥 TEXT BELOW */}
+          {/* TEXT BELOW */}
           <Text style={styles.cardText}>{label}</Text>
         </>
       ) : (
@@ -82,20 +83,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#EDEDED",
-    padding: 16,
+    backgroundColor: theme.colors.surface,
+    padding: theme.spacing.lg,
     borderRadius: 30,
-    marginBottom: 12,
+    marginBottom: theme.spacing.md,
   },
 
   // CARD STYLE (service provider)
   cardContainer: {
     flex: 1,
     flexDirection: "column", 
-    backgroundColor: "#EDEDED",
+    backgroundColor: theme.colors.surface,
     borderRadius: 16,
-    padding: 16,
-    marginHorizontal: 6,
+    padding: theme.spacing.lg,
+    marginHorizontal: theme.spacing.sm,
     minHeight: 100,
   },
 
@@ -107,13 +108,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: theme.spacing.md,
   },
 
   // TEXT BELOW
   cardText: {
     fontSize: 14,
-    color: "#333",
+    color:theme.colors.textPrimary,
   },
 
   // RADIO
@@ -122,44 +123,45 @@ const styles = StyleSheet.create({
     height: 26,
     borderRadius: 15,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor:theme.colors.border,
+    backgroundColor:theme.colors.border,
     alignItems: "center",
     justifyContent: "center",
   },
 
   radioOuterSelected: {
-    borderColor: "#FF6A00",
+    borderColor: theme.colors.selected,
   },
 
   radioInner: {
-    width: 20,
-    height: 20,
+    width: theme.spacing.xl,
+    height: theme.spacing.xl,
     borderRadius: 10,
-    backgroundColor: "#FF6A00",
+    backgroundColor: theme.colors.selected,
     alignItems: "center",
     justifyContent: "center",
   },
 
   tick: {
-    color: "#fff",
+    color: theme.colors.white,
     fontSize: 11,
     fontWeight: "bold",
   },
 
   // ICON
   iconWrapper: {
-    padding: 8,
+    padding: theme.spacing.sm,
     borderRadius: 20,
-    backgroundColor: "#fff",
+    backgroundColor: theme.colors.white,
   },
 
   // ROW MODE
   line: {
     width: 1,
     height: "100%",
-    backgroundColor: "gray",
-    marginLeft: 20,
-    marginRight: 12,
+    backgroundColor: theme.colors.textSecondary,
+    marginLeft: theme.spacing.xl,
+    marginRight: theme.spacing.md,
   },
 
   text: {

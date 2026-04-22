@@ -1,23 +1,26 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { Pressable, Text, StyleSheet } from 'react-native';
+import { Pressable, Text, StyleSheet, ViewStyle, StyleProp, TextStyle } from 'react-native';
+import theme from '../theme';
 
 
 interface GradientButtonProps {
     title: string;
     onPress: () => void;
+    style?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
 }
 
-const GradientButton = ({title, onPress}: GradientButtonProps) => {
+const GradientButton = ({title, onPress, style, textStyle}: GradientButtonProps) => {
     return(
-        <Pressable onPress={onPress}>
+        <Pressable onPress={onPress} style={style}>
             <LinearGradient
-            colors={["#ff7a00", "#c70039"]}
-            style = {styles.button}
+            colors={theme.gradient}
+            style = {[styles.button, style]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             >
-                <Text style = {styles.text}>
+                <Text style = {[styles.text, textStyle]}>
                     {title}
                 </Text>
             </LinearGradient>
@@ -31,7 +34,7 @@ export default GradientButton;
 
 const styles = StyleSheet.create({
     button:{
-    padding: 20,
+    padding: theme.spacing.xl,
     borderRadius: 20,
     alignItems: "center",
     width:100,
@@ -39,7 +42,7 @@ const styles = StyleSheet.create({
 
 
     text:{
-    color:'white',
+    color:theme.colors.white,
     fontWeight: "600",
     fontSize:18,
     },
