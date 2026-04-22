@@ -18,18 +18,23 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
   return (
     <View style={styles.container}>
 
+    {/*Logo */}
+
       <View style={styles.logo}>
         <Image source={require('../assets/BinyanText.png')} />
       </View>
 
+    {/*Title */}
       <Text style={styles.title}>Sign in</Text>
-
+    
+    {/*Mail */}
       <View style={styles.inputContainer}>
       <CustomTextInput
         icon={<Icon name="mail-outline" size={20} color={theme.colors.black} />}
         placeholder="Email Address or phone number"
       />
 
+    {/*Password */}
       <CustomTextInput
         icon={<Icon name="key-outline" size={20} color={theme.colors.black} />}
         placeholder="Password"
@@ -39,11 +44,13 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
       />
       </View>
 
+    {/*Forgot Password */}
       <LinkText
        title='Forgot password?'
        style={styles.forgotPassword}
        onPress={() => console.log("forgot Password")}/>
 
+    {/*Sign In Button */}
       <GradientButton
         title="Sign in"
         onPress={ () => navigation.navigate('Home')}
@@ -51,6 +58,7 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
         textStyle={styles.btnText}
       />
 
+    {/*Dont have account */}
       <View style={styles.signUpcontainer}>
       <Text style={styles.signUptitle}>Don't have an account?</Text>
       <LinkText
@@ -59,12 +67,14 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
        onPress={() => navigation.navigate('SignUp')}/>
        </View>
 
+    {/*Or with vertical line */}
       <View style={styles.containerOr}>
         <View style={styles.line} />
         <Text style={styles.textOR}>OR</Text>
         <View style={styles.line} />
       </View>
 
+    {/*Socail Button */}
       <View style={styles.socailBtn}>
         <SocialIconButton name="apple"
         style={styles.scoialIconApple} />
@@ -76,6 +86,7 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
         style={styles.scoialIconFacebook}/>
       </View>
 
+    {/*As a Guest*/}
       <View style={styles.bottom}>
         <Text style={styles.bottomText}>Continue as </Text>
 
@@ -166,7 +177,7 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     height: 1,
-    backgroundColor: '#CCCCCC',
+    backgroundColor: theme.colors.border,
   },
 
   socailBtn: {
@@ -204,7 +215,7 @@ const styles = StyleSheet.create({
   guestText: {
   fontSize: theme.typography.xl,
   color: theme.colors.textPrimary,
-   fontWeight:theme.fontWeight.medium,
+  fontWeight:theme.fontWeight.medium,
   textDecorationLine: 'underline'
 },
 });

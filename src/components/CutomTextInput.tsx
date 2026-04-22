@@ -3,17 +3,22 @@ import React from 'react';
 import theme from '../theme';
 
 interface CustomTextInputProps extends TextInputProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  prefix?: React.ReactNode;
 }
 const CustomTextInput = ({
   icon,
   rightIcon,
+  prefix,
   ...props
+  
 }: CustomTextInputProps) => {
   return (
     <View style={styles.container}>
       {icon && <View style={styles.leftIcon}>{icon}</View>}
+      
+       {prefix && <View style={styles.prefix}>{prefix}</View>}
       <TextInput
         style={styles.text}
         placeholderTextColor={theme.colors.textSecondary}
@@ -37,16 +42,24 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    flex: 1, 
+    flex: 1,
     fontSize: theme.typography.medium,
   },
 
-  leftIcon:{
+  leftIcon: {
     marginRight: 10,
   },
 
-  rightIcon:{
+  rightIcon: {
     marginLeft: 10,
   },
+
+ prefix: {
+  marginRight: 8,
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  borderRightWidth: 1,
+  borderColor: '#ddd',
+},
 
 });
