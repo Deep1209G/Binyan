@@ -31,7 +31,7 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
       });
       setCurrentIndex(prev => prev + 1);
     } else {
-      navigation.replace('Login');
+      navigation.replace('SignIn');
     }
   };
 

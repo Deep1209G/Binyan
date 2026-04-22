@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 import theme from '../theme';
 import CustomTextInput from '../components/CutomTextInput';
@@ -6,9 +6,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import GradientButton from '../components/GradientButton';
 import SocialIconButton from '../components/SocialIconButton';
 import LinkText from '../components/LinkText';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../App';
 
-const LoginScreen = () => {
-  const handleSignIn = () => {};
+
+const SignInScreen = () => {
+
+const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
@@ -41,7 +46,7 @@ const LoginScreen = () => {
 
       <GradientButton
         title="Sign in"
-        onPress={handleSignIn}
+        onPress={ () => navigation.navigate('Home')}
         style={styles.btn}
         textStyle={styles.btnText}
       />
@@ -51,7 +56,7 @@ const LoginScreen = () => {
       <LinkText
        title='Signup!'
        style={styles.signUpText}
-       onPress={() => console.log("SignUp")}/>
+       onPress={() => navigation.navigate('SignUp')}/>
        </View>
 
       <View style={styles.containerOr}>
@@ -61,25 +66,29 @@ const LoginScreen = () => {
       </View>
 
       <View style={styles.socailBtn}>
-        <SocialIconButton name="apple" />
+        <SocialIconButton name="apple"
+        style={styles.scoialIconApple} />
 
-        <SocialIconButton name="google" />
+        <SocialIconButton name="google"
+        style={styles.scoialIconGoogle} />
 
-        <SocialIconButton name="facebook" />
+        <SocialIconButton name="facebook" 
+        style={styles.scoialIconFacebook}/>
       </View>
 
       <View style={styles.bottom}>
         <Text style={styles.bottomText}>Continue as </Text>
 
-        <Pressable onPress={() => console.log('Guest pressed')}>
-          <Text style={styles.guestText}>Guest</Text>
-        </Pressable>
+      <LinkText
+       title='Guest'
+       style={styles.guestText}
+       onPress={() => navigation.navigate('Home')}/>
       </View>
     </View>
   );
 };
 
-export default LoginScreen;
+export default SignInScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -124,7 +133,7 @@ const styles = StyleSheet.create({
 
   signUpcontainer:{
     flexDirection:'row',
-    marginTop:theme.spacing.dl,
+    marginTop:theme.spacing.dll,
     justifyContent:'center',
   },
   
@@ -165,7 +174,21 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     marginTop:theme.spacing.xxxl,
+  },
 
+  scoialIconApple:{
+    width:22,
+    height:24,
+  },
+
+  scoialIconGoogle:{
+     width:26,
+     height:24,
+  },
+
+  scoialIconFacebook:{
+    width:26,
+    height:26,
   },
 
   bottom: {
