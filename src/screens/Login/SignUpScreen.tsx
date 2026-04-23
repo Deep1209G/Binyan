@@ -1,16 +1,16 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
-import theme from '../theme';
-import CustomTextInput from '../components/CutomTextInput';
+import theme from '../../theme';
+import CustomTextInput from '../../components/CutomTextInput';
 import Icon from 'react-native-vector-icons/Ionicons';
-import GradientButton from '../components/GradientButton';
-import SocialIconButton from '../components/SocialIconButton';
-import LinkText from '../components/LinkText';
+import GradientButton from '../../components/GradientButton';
+import SocialIconButton from '../../components/SocialIconButton';
+import LinkText from '../../components/LinkText';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../../App';
 import CountryPicker, { CountryCode } from 'react-native-country-picker-modal';
-import Checkbox from '../components/CheckBox';
+import Checkbox from '../../components/CheckBox';
 
 const SignInScreen = () => {
   const navigation =

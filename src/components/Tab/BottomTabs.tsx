@@ -1,4 +1,3 @@
-// import { StyleSheet, } from 'react-native'
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../../screens/Tabs/HomeScreen';
@@ -59,6 +58,7 @@ const BottomTabs = () => {
         tabBarIcon: getTabIcon(route),
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.textSecondary,
+        headerShown:false,
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -71,5 +71,4 @@ const BottomTabs = () => {
 
 export default BottomTabs;
 
-// const style
-// s = StyleSheet.create({})
+
