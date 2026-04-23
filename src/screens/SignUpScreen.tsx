@@ -108,9 +108,7 @@ const SignInScreen = () => {
 
       <View style={styles.termsContainer}>
         <Checkbox />
-        <Text style={styles.termsTitle}>
-          If you continue, you agree to the
-        </Text>
+        <Text style={styles.termsTitle}>If you continue, you agree to the</Text>
 
         <LinkText
           title="Terms of Service"
@@ -123,13 +121,13 @@ const SignInScreen = () => {
 
       <View style={styles.policyContainer}>
         <Checkbox />
-        <Text style={styles.termsTitle}>
+        <Text style={styles.policyTitle}>
           If you continue, you agree to the
         </Text>
 
         <LinkText
           title="Privacy Policy"
-          style={styles.termsText}
+          style={styles.policyText}
           onPress={() => console.log('Privacy Policy')}
         />
       </View>
@@ -171,7 +169,7 @@ const SignInScreen = () => {
         <LinkText
           title="Guest"
           style={styles.guestText}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('MainTabs')}
         />
       </View>
     </View>
@@ -270,10 +268,23 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
-  policyContainer:{   
+  policyContainer: {
     flexDirection: 'row',
     marginTop: theme.spacing.sm,
     justifyContent: 'center',
+  },
+
+  policyTitle: {
+    color: theme.colors.textSecondary,
+    fontSize: theme.typography.regular,
+  },
+
+  policyText: {
+    color: theme.colors.black,
+    fontSize: theme.typography.regular,
+    marginLeft: theme.spacing.sm,
+    fontWeight: theme.fontWeight.medium,
+    textDecorationLine: 'underline',
   },
 
   containerOr: {
