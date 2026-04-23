@@ -1,13 +1,13 @@
 import { StyleSheet, View, FlatList, Text, Dimensions } from 'react-native';
 import React, { useState, useRef } from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import SelectableItem from '../../components/SelectableItem';
+import SelectableItem from '../components/SelectableItem';
 import Icon from 'react-native-vector-icons/Ionicons';
-import ProgressDot from '../../components/ProgressDot';
-import GradientButton from '../../components/GradientButton';
-import SkipButton from '../../components/SkipButton';
-import { RootStackParamList } from '../../../App';
-import theme from '../../theme';
+import ProgressDot from '../components/ProgressDot';
+import GradientButton from '../components/GradientButton';
+import SkipButton from '../components/SkipButton';
+import { RootStackParamList } from '../../App';
+import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 

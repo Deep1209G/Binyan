@@ -2,9 +2,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "./src/screens/SplashScreen";
-import OnBoardingScreen from "./src/screens/Onboarding/OnBoardingScreen";
-import SignUpScreen from "./src/screens/Login/SignUpScreen";
-import SignInScreen from "./src/screens/Login/SignInScreen";
+import OnBoardingScreen from "./src/screens/OnBoardingScreen";
+import SignUpScreen from "./src/screens/SignUpScreen";
+import SignInScreen from "./src/screens/SignInScreen";
 import BottomTabs from "./src/components/Tab/BottomTabs";
 
 export type RootStackParamList = {
