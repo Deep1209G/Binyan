@@ -13,13 +13,12 @@ const LinkText = ({title, onPress, style}:Props) => {
     <Pressable onPress={onPress}>
         <Text style={[styles.text,style]}>{title}</Text>
     </Pressable>
-  )
-}
+  );
+};
 
 export default LinkText
 
 const styles = StyleSheet.create({
-    text:{
-
-    },
+    text:{},
+    
 })

@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: theme.spacing.sm,
+    backgroundColor: theme.colors.white,
   },
 
   checked: {

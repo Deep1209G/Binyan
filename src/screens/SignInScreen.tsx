@@ -53,7 +53,7 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
     {/*Sign In Button */}
       <GradientButton
         title="Sign in"
-        onPress={ () => navigation.navigate('Home')}
+        onPress={ () => navigation.navigate('MainTabs')}
         style={styles.btn}
         textStyle={styles.btnText}
       />
@@ -62,7 +62,7 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
       <View style={styles.signUpcontainer}>
       <Text style={styles.signUptitle}>Don't have an account?</Text>
       <LinkText
-       title='Signup!'
+       title='Sign up!'
        style={styles.signUpText}
        onPress={() => navigation.navigate('SignUp')}/>
        </View>
@@ -93,7 +93,7 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
       <LinkText
        title='Guest'
        style={styles.guestText}
-       onPress={() => navigation.navigate('Home')}/>
+       onPress={() => navigation.navigate('MainTabs')}/>
       </View>
     </View>
   );
@@ -158,6 +158,8 @@ const styles = StyleSheet.create({
     fontSize:theme.typography.medium,
     marginLeft:theme.spacing.sm,
     fontWeight:theme.fontWeight.medium,
+    textDecorationLine:'underline',
+    textDecorationColor:'black',
 
   },
 
