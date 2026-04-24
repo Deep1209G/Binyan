@@ -25,7 +25,6 @@ const GradientButton = ({title, onPress, style, textStyle}: GradientButtonProps)
                 </Text>
             </LinearGradient>
         </Pressable>
-
     )
 };
 
