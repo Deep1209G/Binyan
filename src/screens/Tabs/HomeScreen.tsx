@@ -2,8 +2,8 @@ import { StyleSheet, Image, Text, View } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import theme from '../../theme';
-import PressableIcon from '../../components/PressableIcon';
-import SearchBar from '../../components/SearchBar';
+import PressableIcon from '../../components/Home/PressableIcon';
+import SearchBar from '../../components/Home/SearchBar';
 
 const HomeScreen = () => {
   return (
@@ -11,7 +11,7 @@ const HomeScreen = () => {
 
       {/* HEADER */}
       <View style={styles.headerContainer}>
-        
+
         {/* LEFT SECTION  */}
         <View style={styles.leftSection}>
           <Image
@@ -26,7 +26,6 @@ const HomeScreen = () => {
           name="notifications-outline"
           size={25}
           onPress={() => console.log('Notification')}
-          color={theme.colors.textSecondary}
         />
       </View>
 
@@ -35,7 +34,10 @@ const HomeScreen = () => {
         <SearchBar placeholder="What do you need help with today?" />
       </View>
 
-      {/* */}
+      {/* Services Section*/}
+
+        <Text style={styles.srviceTitle}>Services</Text>
+    
     </SafeAreaView>
   );
 };
@@ -78,5 +80,11 @@ const styles = StyleSheet.create({
     marginTop:theme.spacing.xxxl,
 
   },
+  srviceTitle:{
+    marginTop: theme.spacing.xl,
+    fontSize: theme.typography.xl,
+    color: theme.colors.black,
+    fontWeight: theme.fontWeight.medium,
+  }
 
-});
+}); 
