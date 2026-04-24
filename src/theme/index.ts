@@ -19,6 +19,8 @@ const theme = {
     border: '#dddddd',
 
     selected: '#FF6A00',
+
+    card:'#FCE7DB'
   },
 
   gradient: ['#FF9A3D', '#FF6A00', '#FF3D00'],

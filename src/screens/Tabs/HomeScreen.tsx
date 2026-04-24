@@ -1,17 +1,19 @@
-import { StyleSheet, Image, Text, View } from 'react-native';
+import { StyleSheet, Image, Text, View, FlatList } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import theme from '../../theme';
 import PressableIcon from '../../components/Home/PressableIcon';
 import SearchBar from '../../components/Home/SearchBar';
+import ServiceCard from '../../components/Home/ServiceCard';
+import { services, chunkArray } from '../../data/Services';
+
+const chunkedServices = chunkArray(services, 2);
 
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
-
       {/* HEADER */}
       <View style={styles.headerContainer}>
-
         {/* LEFT SECTION  */}
         <View style={styles.leftSection}>
           <Image
@@ -36,8 +38,22 @@ const HomeScreen = () => {
 
       {/* Services Section*/}
 
-        <Text style={styles.srviceTitle}>Services</Text>
-    
+      <Text style={styles.srviceTitle}>Services</Text>
+      <View style={styles.cardContainer}>
+        <FlatList
+          data={chunkedServices}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(_, index) => index.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.column}>
+              {item.map((service: any) => (
+                <ServiceCard key={service.id} text={service.title} />
+              ))}
+            </View>
+          )}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -51,6 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.xl,
   },
 
+// HEADER 
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -76,15 +93,24 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
 
-  searchBtn:{
-    marginTop:theme.spacing.xxxl,
-
+// Search Bar
+  searchBtn: {
+    marginTop: theme.spacing.xxxl,
   },
-  srviceTitle:{
+
+ //Service & card
+  srviceTitle: {
     marginTop: theme.spacing.xl,
     fontSize: theme.typography.xl,
     color: theme.colors.black,
     fontWeight: theme.fontWeight.medium,
-  }
+  },
 
-}); 
+  cardContainer: {
+    marginTop: theme.spacing.md,
+  },
+  
+  column: {
+  marginRight: 12,
+},
+});
