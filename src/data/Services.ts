@@ -9,8 +9,12 @@ export const services = [
   { id: '8', title: 'Havc' },
   { id: '9', title: 'Painting' },
   { id: '10', title: 'Repair' },
+  { id: '11', title: 'Painting' },
+  { id: '12', title: 'Wiring' },
+  { id: '13', title: 'Havc' },
+  { id: '14', title: 'Painting' },
+  { id: '15', title: 'Repair' },
 ];
-
 
 export const chunkArray = (data: any[], size: number) => {
   const result = [];

@@ -1,14 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet } from 'react-native';
+import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Header from '../../components/Service/Header';
+import theme from '../../theme';
 
 const ServiceScreen = () => {
   return (
-    <View>
-      <Text>ServiceScreen</Text>
-    </View>
-  )
-}
+    <SafeAreaView style={styles.mainContainer}>
 
-export default ServiceScreen
+    {/*Header */}
+      <Header title="All Services" />
+    
+    {/*All Service Card*/}
+    
+    </SafeAreaView>
+  );
+};
 
-const styles = StyleSheet.create({})
+export default ServiceScreen;
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    paddingVertical: theme.spacing.xl,
+    paddingHorizontal: theme.spacing.xl,
+  },
+});
