@@ -20,7 +20,13 @@ const theme = {
 
     selected: '#FF6A00',
 
-    card:'#FCE7DB'
+    card:'#FCE7DB',
+
+    cosmicLatte:"#FDDE76",
+    darkbrown:"#352618",
+    mutedgrayishtaupe:"#C2BDB9",
+
+
   },
 
   gradient: ['#FF9A3D', '#FF6A00', '#FF3D00'],

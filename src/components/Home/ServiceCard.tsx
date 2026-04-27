@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
         borderRadius:theme.radius.md,
         alignItems:'center',
         justifyContent:'flex-end', 
-        marginVertical: theme.spacing.sm,
+        marginVertical: theme.spacing.xs,
     },
 
     text:{
         color:theme.colors.textPrimary,
         fontSize:theme.typography.regular,
         fontWeight:theme.fontWeight.medium,
-         marginBottom:theme.spacing.md,
+        marginBottom:theme.spacing.md,
     },
 })

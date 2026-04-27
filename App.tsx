@@ -6,6 +6,8 @@ import OnBoardingScreen from "./src/screens/OnBoardingScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import BottomTabs from "./src/components/Tab/BottomTabs";
+import ServiceScreen from "./src/screens/Tabs/ServiceScreen";
+
 
 export type RootStackParamList = {
   Splash: undefined,
@@ -19,6 +21,7 @@ export type RootStackParamList = {
   OnBoardingFlow: undefined,
   MainTabs: undefined,
   SignUp: undefined,
+  Service: undefined,
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -32,6 +35,7 @@ const App = () => {
         <Stack.Screen name="SignIn" component={SignInScreen}/>
         <Stack.Screen name="SignUp" component={SignUpScreen}/>
         <Stack.Screen name="MainTabs" component={BottomTabs}/>
+        <Stack.Screen name="Service" component={ServiceScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
