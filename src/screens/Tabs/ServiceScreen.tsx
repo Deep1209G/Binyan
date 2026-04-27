@@ -1,8 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../components/Service/Header';
 import theme from '../../theme';
+import SearchBar from '../../components/Home/SearchBar';
+import AllServiceCard from '../../components/Service/AllServiceCard';
+import { services } from '../../data/Services';
+import GradientButton from '../../components/GradientButton';
+
 
 const ServiceScreen = () => {
   return (
@@ -11,8 +16,31 @@ const ServiceScreen = () => {
     {/*Header */}
       <Header title="All Services" />
     
+    {/*Search Bar */}
+    <SearchBar 
+     placeholder='Search Services'
+     style={styles.searchbar}/>
+
     {/*All Service Card*/}
-    
+    <FlatList 
+    data={services}
+    keyExtractor={(item) => item.id}
+    numColumns={3}
+    showsVerticalScrollIndicator={false}
+    renderItem={({item}) => (
+    <AllServiceCard 
+    title={item.title} 
+    onPress={() => console.log("Service")}/>) }
+    />
+
+    {/*Select Button*/}
+    <GradientButton 
+    title="Select"
+    style={styles.btn}
+    textStyle={styles.btntext}
+    onPress={() => console.log("Selected")}
+    />
+
     </SafeAreaView>
   );
 };
@@ -25,4 +53,15 @@ const styles = StyleSheet.create({
     paddingVertical: theme.spacing.xl,
     paddingHorizontal: theme.spacing.xl,
   },
+  searchbar:{
+    marginTop:theme.spacing.md,
+  },
+  btn:{
+    height: 60,
+    width: '100%',
+    marginTop:theme.spacing.md,
+  },
+  btntext:{
+    fontSize: theme.typography.medium,
+  }
 });

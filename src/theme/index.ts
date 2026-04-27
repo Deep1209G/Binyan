@@ -5,26 +5,20 @@ const theme = {
     primary: '#FF6A00',
     secondary: '#FF9A3D',
     accent: '#FF3D00',
-
     textPrimary: '#000000',
     textSecondary: '#666666',
-
     white: '#ffffff',
     black: '#000000',
-
     background: '#ffffff',
     surface: '#EDEDED',
     backgroundDot: 'rgb(238, 216, 196)',
-
     border: '#dddddd',
-
     selected: '#FF6A00',
-
     card:'#FCE7DB',
-
     cosmicLatte:"#FDDE76",
     darkbrown:"#352618",
     mutedgrayishtaupe:"#C2BDB9",
+    offWhite:"#f6f1e4",
 
 
   },
