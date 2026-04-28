@@ -44,6 +44,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
+
         {/*Header */}
         <Header
           title="Hi, John Doe 👋"
@@ -168,7 +169,7 @@ const styles = StyleSheet.create({
 
   //Service & card
   title: {
-    marginTop: theme.spacing.xl,
+    marginTop: theme.spacing.md,
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
     fontFamily: theme.fontFamily.medium,
