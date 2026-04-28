@@ -6,7 +6,7 @@ const theme = {
     secondary: '#FF9A3D',
     accent: '#FF3D00',
     textPrimary: '#000000',
-    textSecondary: '#666666',
+    textSecondary: '#9b9898',
     white: '#ffffff',
     black: '#000000',
     background: '#ffffff',
@@ -19,8 +19,6 @@ const theme = {
     darkbrown:"#352618",
     mutedgrayishtaupe:"#C2BDB9",
     offWhite:"#f6f1e4",
-
-
   },
 
   gradient: ['#FF9A3D', '#FF6A00', '#FF3D00'],
@@ -49,11 +47,14 @@ const theme = {
   },
 
   typography: {
+    xxs:8,
+    xs:10,
     small: 12,
     regular: 14,
     medium: 16,
     large: 18,
-    xl: 22,
+    xl:20,
+    xxl: 22,
     heading: 26,
   },
 
@@ -65,6 +66,25 @@ const theme = {
   bold: '700',
   extraBold: '800',
 } as const,
+
+fontFamily:{
+  black:"CreatoDisplay-Black",
+  blackItalic:"CreatoDisplay-BlackItalic",
+  bold:"CreatoDisplay-Bold",
+  boldItalic:"CreatoDisplay-BoldItalic",
+  extraBold:"CreatoDisplay-ExtraBold",
+  extraBoldItalic:"CreatoDisplay-ExtraBoldItalic",
+  light:"CreatoDisplay-Light",
+  lightItalic:"CreatoDisplay-LightItalic",
+  medium:"CreatoDisplay-Medium",
+  mediumItalic:"CreatoDisplay-MediumItalic",
+  regular:"CreatoDisplay-Regular",
+  regularItalic:"CreatoDisplay-RegularItalic",
+  thin:"CreatoDisplay-Thin",
+  thinItalic:"CreatoDisplay-ThinItalic",
+
+
+}
 
 
 };

@@ -22,7 +22,7 @@ const Header = ({ title }: ServiceProp) => {
         <PressableIcon
           name="arrow-back-outline"
           size={25}
-          onPress={() =>  navigation.navigate('MainTabs')} 
+          onPress={() => navigation.navigate('MainTabs')}
         />
       </View>
 
@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
-    fontWeight: theme.fontWeight.medium,
+    fontFamily: theme.fontFamily.medium,
   },
 });

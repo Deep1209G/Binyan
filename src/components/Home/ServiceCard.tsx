@@ -1,16 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, Pressable } from 'react-native'
 import React from 'react'
 import theme from '../../theme'
 
 type ServiceProp = {
   text :string,
+  onPress: () => void,
 }
 
-const ServiceCard = ({text}:ServiceProp) => {
+const ServiceCard = ({text, onPress}:ServiceProp) => {
   return (
-    <View style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
       <Text style={styles.text}>{text}</Text>
-    </View>
+    </Pressable>
   )
 }
 
@@ -18,8 +19,8 @@ export default ServiceCard
 
 const styles = StyleSheet.create({
     container:{
-        height:120,
-        width:120,
+        height:110,
+        width:110,
         backgroundColor:theme.colors.card,
         borderRadius:theme.radius.md,
         alignItems:'center',
@@ -29,8 +30,8 @@ const styles = StyleSheet.create({
 
     text:{
         color:theme.colors.textPrimary,
-        fontSize:theme.typography.regular,
-        fontWeight:theme.fontWeight.medium,
+        fontSize:theme.typography.small,
+        fontFamily:theme.fontFamily.bold,
         marginBottom:theme.spacing.md,
     },
 })

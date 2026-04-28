@@ -63,5 +63,6 @@ const styles = StyleSheet.create({
   },
   btntext:{
     fontSize: theme.typography.medium,
+    fontFamily:theme.fontFamily.bold,
   }
 });

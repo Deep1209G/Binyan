@@ -81,7 +81,10 @@ const HomeScreen = () => {
             renderItem={({ item }) => (
               <View style={styles.column}>
                 {item.map((service: any) => (
-                  <ServiceCard key={service.id} text={service.title} />
+                  <ServiceCard 
+                  key={service.id} 
+                  text={service.title}
+                  onPress={() => console.log("Hello")} />
                 ))}
               </View>
             )}
@@ -104,11 +107,13 @@ const HomeScreen = () => {
             </Text>
             <Pressable style={styles.teamchatbtn}>
               <Text style={styles.teamchatbtntext}>Join Now</Text>
+              <View style={styles.iconcontainer}>
               <Icon
                 name="chevron-up-outline"
-                size={18}
-                style={styles.iconcontainer}
+                size={15}
+                style={styles.icon}
               />
+              </View>
             </Pressable>
           </View>
 
@@ -132,7 +137,7 @@ const HomeScreen = () => {
         {/*Find Professionals */}
         <View>
           <Text style={styles.title}>Find Professionals</Text>
-          <Text style={styles.teamchatsubtitle}>
+          <Text style={styles.subtitle}>
             Connect with the best professionals for your construction projects.
           </Text>
 
@@ -145,19 +150,19 @@ const HomeScreen = () => {
           <VendorCard
             image="consultant"
             title="Consultants"
-            subtitle="Expert consulting firm for your projects"
+            subtitle="Expert consulting firm for your projects."
             onPress={() => console.log('vendor card')}
           />
           <VendorCard
             image="suppliers"
             title="Suppliers "
-            subtitle="Quality building materials and equipments"
+            subtitle="Quality building materials and equipments."
             onPress={() => console.log('vendor card')}
           />
           <VendorCard
             image="freelancer"
             title="Freelancers"
-            subtitle="Independent professionals for hire"
+            subtitle="Independent professionals for hire."
             onPress={() => console.log('vendor card')}
           />
           <VendorCard
@@ -195,8 +200,9 @@ const styles = StyleSheet.create({
 
   headerText: {
     marginLeft: theme.spacing.md,
-    fontSize: theme.typography.regular,
+    fontSize: theme.typography.small,
     color: theme.colors.textSecondary,
+    fontFamily:theme.fontFamily.regular,
   },
 
   profileImage: {
@@ -217,7 +223,13 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.xl,
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
-    fontWeight: theme.fontWeight.medium,
+    fontFamily:theme.fontFamily.medium,
+  },
+  subtitle:{
+    fontFamily:theme.fontFamily.regular,
+    fontSize:theme.typography.small,
+    color:theme.colors.textSecondary,
+    marginTop: theme.spacing.sm,
   },
 
   cardContainer: {
@@ -233,8 +245,8 @@ const styles = StyleSheet.create({
   },
 
   footerCard: {
-    height: 120,
-    width: 120,
+    height: 110,
+    width: 110,
     borderRadius: theme.radius.md,
     backgroundColor: theme.colors.card,
     justifyContent: 'center',
@@ -252,7 +264,7 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.xs,
     fontSize: theme.typography.small,
     color: theme.colors.textPrimary,
-    fontWeight: theme.fontWeight.medium,
+    fontFamily:theme.fontFamily.bold,
   },
 
   pressed: {
@@ -262,50 +274,53 @@ const styles = StyleSheet.create({
 
   // Affiliate Program Card
   affiliateConatiner: {
-    flexDirection: 'row',
+    flex:1,
     gap: theme.spacing.sm,
     marginTop: theme.spacing.md,
+    flexDirection:'row',
+    justifyContent:'space-evenly',
   },
 
   teamChatcard: {
     backgroundColor: theme.colors.white,
-    height: 120,
-    width: 220,
-    borderRadius: theme.radius.lg,
+    height: 96,
+    width: 210,
+    borderRadius: theme.radius.md,
     paddingHorizontal: theme.spacing.md,
     paddingVertical: theme.spacing.md,
     overflow: 'hidden',
   },
 
   teamchattitle: {
-    fontSize: theme.typography.large,
+    fontSize: theme.typography.regular,
     color: theme.colors.textPrimary,
-    fontWeight: theme.fontWeight.medium,
+    fontFamily:theme.fontFamily.medium,
     marginTop: theme.spacing.xs,
   },
   teamchatsubtitle: {
     color: theme.colors.textSecondary,
-    fontSize: theme.typography.regular,
+    fontSize: theme.typography.xs,
+    fontFamily:theme.fontFamily.regular,
     marginTop: theme.spacing.xs,
   },
 
   teamchatbtn: {
-    marginTop: theme.spacing.xs,
-    backgroundColor: theme.colors.black,
-    height: 25,
-    width: 90,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
+    flexDirection:'row',
+    backgroundColor:theme.colors.black,
+    height:24,
+    width:76,
+    alignItems:'center',
+    justifyContent:'flex-end',
+    borderRadius:theme.radius.md,
+    marginTop:theme.spacing.md,
   },
 
   teamchatbtntext: {
     color: theme.colors.white,
-    fontSize: theme.typography.small,
-    paddingLeft: theme.spacing.sm,
-    marginRight: 6,
+    fontFamily:theme.fontFamily.medium,
+    fontSize: theme.typography.xxs,
+    flex:1,
+    marginLeft:theme.spacing.md,
   },
   iconcontainer: {
     height: 20,
@@ -313,26 +328,29 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.md,
     backgroundColor: theme.colors.cosmicLatte,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: theme.spacing.sm,
+    alignItems:'center',
+    marginRight:theme.spacing.xs,
+  },
+  icon:{
+
   },
 
   offeroutercard: {
     backgroundColor: theme.colors.white,
-    height: 120,
-    width: 140,
-    borderRadius: theme.radius.lg,
+    height: 96,
+    width: 127,
+    borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   offerinnercard: {
-    height: 100,
-    width: 120,
+    height: 88,
+    width: 119,
     borderWidth: 1.5,
     borderStyle: 'dashed',
-    borderColor: theme.colors.border,
-    borderRadius: theme.radius.lg,
+    borderColor: theme.colors.black,
+    borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
     padding: theme.spacing.sm,
@@ -346,7 +364,7 @@ const styles = StyleSheet.create({
   sponsorCard: {
     marginTop: theme.spacing.md,
     backgroundColor: theme.colors.cosmicLatte,
-    height: 150,
+    height: 130,
     borderRadius: theme.radius.md,
   },
 

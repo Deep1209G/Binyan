@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   text:{
     marginTop:theme.spacing.sm,
     fontSize:theme.typography.medium,
-    fontWeight:theme.fontWeight.medium,
+    fontFamily:theme.fontFamily.medium,
   }
 
 });

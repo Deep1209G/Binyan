@@ -55,12 +55,14 @@ const styles = StyleSheet.create({
   },
   title: {
     color: theme.colors.white,
-    fontSize: theme.typography.large,
-    fontWeight: theme.fontWeight.medium,
+    fontSize: theme.typography.medium,
+    fontWeight:theme.fontWeight.bold,
   },
   subtitle: {
     marginTop: theme.spacing.xs,
     color: theme.colors.mutedgrayishtaupe,
+    fontSize: theme.typography.small,
+    fontWeight:theme.fontWeight.regular,
     flexShrink: 1,
   },
   btnContainer: {
@@ -81,6 +83,7 @@ const styles = StyleSheet.create({
     gap: theme.spacing.xs,
   },
   btnText: {
-    fontSize: theme.typography.small,
+     fontSize: theme.typography.small,
+    fontWeight:theme.fontWeight.medium,
   },
 });
