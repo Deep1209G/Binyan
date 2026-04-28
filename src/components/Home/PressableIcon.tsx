@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor:theme.colors.white,
         borderRadius:theme.radius.dl,
-        height:60,
-        width:60,
+        height:46,
+        width:46,
         alignItems:'center',
         justifyContent:'center',
     

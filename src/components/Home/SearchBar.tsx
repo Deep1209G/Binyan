@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.white,
     borderRadius: theme.radius.dl, 
-    height: 55,
+    height: 46,
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: theme.spacing.lg,

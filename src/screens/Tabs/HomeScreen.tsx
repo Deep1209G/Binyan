@@ -1,6 +1,5 @@
 import {
   StyleSheet,
-  Image,
   Text,
   View,
   FlatList,
@@ -10,7 +9,6 @@ import {
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import theme from '../../theme';
-import PressableIcon from '../../components/Home/PressableIcon';
 import SearchBar from '../../components/Home/SearchBar';
 import ServiceCard from '../../components/Home/ServiceCard';
 import { services, chunkArray } from '../../data/Services';
@@ -19,6 +17,7 @@ import VendorCard from '../../components/Home/VendorCard';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
+import Header from '../../components/Home/Header';
 // FlatList (Card)
 
 const limitedServices = services.slice(0, 8);
@@ -45,24 +44,12 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* HEADER */}
-        <View style={styles.headerContainer}>
-          {/* LEFT SECTION  */}
-          <View style={styles.leftSection}>
-            <Image
-              source={require('../../assets/profile.jpg')}
-              style={styles.profileImage}
-            />
-            <Text style={styles.headerText}>Hi, John Doe 👋</Text>
-          </View>
-
-          {/* RIGHT SECTION (Notification Icon) */}
-          <PressableIcon
-            name="notifications-outline"
-            size={25}
-            onPress={() => console.log('Notification')}
-          />
-        </View>
+        {/*Header */}
+        <Header
+          title="Hi, John Doe 👋"
+          imageSrc={require('../../assets/profile.jpg')}
+          iconName="notifications-outline"
+        />
 
         {/*Search Bar */}
         <View style={styles.searchBtn}>
@@ -81,17 +68,16 @@ const HomeScreen = () => {
             renderItem={({ item }) => (
               <View style={styles.column}>
                 {item.map((service: any) => (
-                  <ServiceCard 
-                  key={service.id} 
-                  text={service.title}
-                  onPress={() => console.log("Hello")} />
+                  <ServiceCard
+                    key={service.id}
+                    text={service.title}
+                    onPress={() => console.log('Hello')}
+                  />
                 ))}
               </View>
             )}
             ListFooterComponent={() => (
-              <ListFooter
-                onPress={() => navigation.navigate('Service')}
-              />
+              <ListFooter onPress={() => navigation.navigate('Service')} />
             )}
           />
         </View>
@@ -108,11 +94,7 @@ const HomeScreen = () => {
             <Pressable style={styles.teamchatbtn}>
               <Text style={styles.teamchatbtntext}>Join Now</Text>
               <View style={styles.iconcontainer}>
-              <Icon
-                name="chevron-up-outline"
-                size={15}
-                style={styles.icon}
-              />
+                <Icon name="chevron-up-outline" size={15} style={styles.icon} />
               </View>
             </Pressable>
           </View>
@@ -186,36 +168,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.xl,
   },
 
-  // HEADER
-  headerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-
-  leftSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  headerText: {
-    marginLeft: theme.spacing.md,
-    fontSize: theme.typography.small,
-    color: theme.colors.textSecondary,
-    fontFamily:theme.fontFamily.regular,
-  },
-
-  profileImage: {
-    width: 60,
-    height: 60,
-    borderRadius: theme.radius.dl,
-    borderColor: theme.colors.primary,
-    borderWidth: 2,
-  },
-
   // Search Bar
   searchBtn: {
-    marginTop: theme.spacing.xxxl,
+    marginTop: theme.spacing.xl,
   },
 
   //Service & card
@@ -223,12 +178,12 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.xl,
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
-    fontFamily:theme.fontFamily.medium,
+    fontFamily: theme.fontFamily.medium,
   },
-  subtitle:{
-    fontFamily:theme.fontFamily.regular,
-    fontSize:theme.typography.small,
-    color:theme.colors.textSecondary,
+  subtitle: {
+    fontFamily: theme.fontFamily.regular,
+    fontSize: theme.typography.small,
+    color: theme.colors.textSecondary,
     marginTop: theme.spacing.sm,
   },
 
@@ -264,7 +219,7 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.xs,
     fontSize: theme.typography.small,
     color: theme.colors.textPrimary,
-    fontFamily:theme.fontFamily.bold,
+    fontFamily: theme.fontFamily.bold,
   },
 
   pressed: {
@@ -274,11 +229,11 @@ const styles = StyleSheet.create({
 
   // Affiliate Program Card
   affiliateConatiner: {
-    flex:1,
+    flex: 1,
     gap: theme.spacing.sm,
     marginTop: theme.spacing.md,
-    flexDirection:'row',
-    justifyContent:'space-evenly',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
 
   teamChatcard: {
@@ -294,33 +249,33 @@ const styles = StyleSheet.create({
   teamchattitle: {
     fontSize: theme.typography.regular,
     color: theme.colors.textPrimary,
-    fontFamily:theme.fontFamily.medium,
+    fontFamily: theme.fontFamily.medium,
     marginTop: theme.spacing.xs,
   },
   teamchatsubtitle: {
     color: theme.colors.textSecondary,
     fontSize: theme.typography.xs,
-    fontFamily:theme.fontFamily.regular,
+    fontFamily: theme.fontFamily.regular,
     marginTop: theme.spacing.xs,
   },
 
   teamchatbtn: {
-    flexDirection:'row',
-    backgroundColor:theme.colors.black,
-    height:24,
-    width:76,
-    alignItems:'center',
-    justifyContent:'flex-end',
-    borderRadius:theme.radius.md,
-    marginTop:theme.spacing.md,
+    flexDirection: 'row',
+    backgroundColor: theme.colors.black,
+    height: 24,
+    width: 76,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    borderRadius: theme.radius.md,
+    marginTop: theme.spacing.md,
   },
 
   teamchatbtntext: {
     color: theme.colors.white,
-    fontFamily:theme.fontFamily.medium,
+    fontFamily: theme.fontFamily.medium,
     fontSize: theme.typography.xxs,
-    flex:1,
-    marginLeft:theme.spacing.md,
+    flex: 1,
+    marginLeft: theme.spacing.md,
   },
   iconcontainer: {
     height: 20,
@@ -328,12 +283,10 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.md,
     backgroundColor: theme.colors.cosmicLatte,
     justifyContent: 'center',
-    alignItems:'center',
-    marginRight:theme.spacing.xs,
+    alignItems: 'center',
+    marginRight: theme.spacing.xs,
   },
-  icon:{
-
-  },
+  icon: {},
 
   offeroutercard: {
     backgroundColor: theme.colors.white,

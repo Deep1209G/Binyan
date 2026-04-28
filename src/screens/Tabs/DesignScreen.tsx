@@ -1,17 +1,29 @@
-import { StyleSheet, Text } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { StyleSheet } from 'react-native';
+import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Header from '../../components/Home/Header';
+import theme from '../../theme';
 
 const DesignScreen = () => {
   return (
-      <SafeAreaView style={styles.container}>
-      <Text>DesignScreen</Text>
-      </SafeAreaView>
-  )
-}
+    <SafeAreaView style={styles.container}>
 
-export default DesignScreen
+      {/*Header */}
+      <Header 
+      title="Hi, John Doe 👋"
+      imageSrc={require('../../assets/profile.jpg')} 
+      iconName="notifications-outline"/>
+      
+    </SafeAreaView>
+  );
+};
+
+export default DesignScreen;
 
 const styles = StyleSheet.create({
-    container:{},
-})
+  container: {
+    flex: 1,
+    paddingVertical: theme.spacing.xl,
+    paddingHorizontal: theme.spacing.xl,
+  },
+});
