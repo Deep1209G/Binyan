@@ -3,6 +3,7 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../components/Home/Header';
 import theme from '../../theme';
+import SearchBar from '../../components/Home/SearchBar';
 
 const DesignScreen = () => {
   return (
@@ -13,7 +14,12 @@ const DesignScreen = () => {
       title="Hi, John Doe 👋"
       imageSrc={require('../../assets/profile.jpg')} 
       iconName="notifications-outline"/>
-      
+
+      {/*Search Bar */}
+      <SearchBar
+       placeholder="What do you need help with today?"
+       />
+
     </SafeAreaView>
   );
 };
@@ -26,4 +32,5 @@ const styles = StyleSheet.create({
     paddingVertical: theme.spacing.xl,
     paddingHorizontal: theme.spacing.xl,
   },
+ 
 });

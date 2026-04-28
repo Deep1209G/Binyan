@@ -37,7 +37,7 @@ const SearchBar = ({ placeholder, textStyle, style }: SearchBarProps) => {
 
       {/* RIGHT BUTTON */}
       <TouchableOpacity style={styles.filterButton}>
-        <Icon name="filter-circle" size={45} color={theme.colors.primary} />
+        <Icon name="filter-circle" size={40} color={theme.colors.primary} />
       </TouchableOpacity>
 
     </View>
@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: theme.spacing.lg,
     paddingRight: theme.spacing.ts,
+    marginTop:theme.spacing.md,
   },
 
   input: {

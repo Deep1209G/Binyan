@@ -52,9 +52,7 @@ const HomeScreen = () => {
         />
 
         {/*Search Bar */}
-        <View style={styles.searchBtn}>
           <SearchBar placeholder="What do you need help with today?" />
-        </View>
 
         {/* Services Section*/}
 
@@ -166,11 +164,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: theme.spacing.xl,
     paddingHorizontal: theme.spacing.xl,
-  },
-
-  // Search Bar
-  searchBtn: {
-    marginTop: theme.spacing.xl,
   },
 
   //Service & card
