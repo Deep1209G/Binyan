@@ -5,13 +5,13 @@ import theme from '../theme';
 
 
 type RootStackParamList = {
-  Login: undefined;
+  SignIn: undefined;
 };
 
 const SkipButton = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const handleSkip = () => {
-    navigation.navigate('Login');
+    navigation.navigate('SignIn');
   };
 
   return (
