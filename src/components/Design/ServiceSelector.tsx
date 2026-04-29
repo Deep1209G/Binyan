@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     width: 48,
     borderRadius: theme.radius.xl,
     backgroundColor: theme.colors.pastelOrange,
-    marginTop: theme.spacing.md,
+    marginTop: theme.spacing.xs,
   },
 
   text: {

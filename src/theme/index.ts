@@ -19,7 +19,8 @@ const theme = {
     darkbrown:"#352618",
     mutedgrayishtaupe:"#C2BDB9",
     offWhite:"#f6f1e4",
-    pastelOrange:"#F2D4C4"
+    pastelOrange:"#F2D4C4",
+    chineseSilver:"#CACACA",
   },
 
   gradient: ['#FF9A3D', '#FF6A00', '#FF3D00'],

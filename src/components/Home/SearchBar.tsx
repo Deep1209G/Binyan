@@ -49,7 +49,7 @@ export default SearchBar;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.white,
-    borderRadius: theme.radius.dl, 
+    borderRadius: theme.radius.md, 
     height: 46,
     flexDirection: 'row',
     alignItems: 'center',
