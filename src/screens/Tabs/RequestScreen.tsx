@@ -3,6 +3,7 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import theme from '../../theme'
 import SearchBar from '../../components/Home/SearchBar'
+import TabSwitcher from '../../components/Request/TabSwitcher'
 
 const RequestScreen = () => {
   return (
@@ -17,6 +18,8 @@ const RequestScreen = () => {
       placeholder='Search Requests'/>
 
       {/*Tab Switcher */}
+      <TabSwitcher
+       />
 
 
     </SafeAreaView>

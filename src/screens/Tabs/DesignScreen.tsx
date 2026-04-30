@@ -13,6 +13,7 @@ const DesignScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
+        
         {/*Header */}
         <Header
           title="Hi, John Doe 👋"
