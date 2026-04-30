@@ -1,33 +1,47 @@
-import { StyleSheet, Text } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import theme from '../../theme'
-import SearchBar from '../../components/Home/SearchBar'
-import TabSwitcher from '../../components/Request/TabSwitcher'
+import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import theme from '../../theme';
+import SearchBar from '../../components/Home/SearchBar';
+import TabSwitcher from '../../components/Request/TabSwitcher';
+import RequestCard from '../../components/Request/RequestCard';
 
 const RequestScreen = () => {
-  return (
+  const [activeTab, setActiveTab] = useState<'private' | 'public'>('private');
 
+  return (
     <SafeAreaView style={styles.maincontainer}>
       
-      {/*Header */}
+      {/* Header */}
       <Text style={styles.title}>Requests</Text>
 
-      {/*Search Bar */}
+      {/* Search */}
       <SearchBar 
-      placeholder='Search Requests'/>
+        style={styles.searchbar}
+        placeholder='Search Requests'
+      />
 
-      {/*Tab Switcher */}
-      <TabSwitcher
-       />
+      {/* Tabs */}
+      <TabSwitcher 
+        activeTab={activeTab}
+        onChange={setActiveTab}
+      />
 
+      {/* Content */}
+      <View style={{ marginTop: 20 }}>
+        {activeTab === 'private' ? (
+          <RequestCard 
+          image="deepcleaning"/>
+        ) : (
+          <Text>Public Requests Data</Text>
+        )}
+      </View>
 
     </SafeAreaView>
+  );
+};
 
-  )
-}
-
-export default RequestScreen
+export default RequestScreen;
 
 const styles = StyleSheet.create({
     maincontainer:{
@@ -41,5 +55,9 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
     fontFamily: theme.fontFamily.medium,
+  },
+  searchbar:{
+     marginTop:theme.spacing.lg,
+
   },
 })
