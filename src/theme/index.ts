@@ -21,6 +21,7 @@ const theme = {
     offWhite:"#f6f1e4",
     pastelOrange:"#F2D4C4",
     chineseSilver:"#CACACA",
+    mutedbluegray:"#535763"
   },
 
   gradient: ['#FF9A3D', '#FF6A00', '#FF3D00'],

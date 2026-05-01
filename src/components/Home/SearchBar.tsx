@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     marginLeft: theme.spacing.sm,
-    fontSize: theme.typography.small,
+    fontSize: theme.typography.regular,
     fontFamily:theme.fontFamily.regular,
     color: theme.colors.textPrimary,
   },

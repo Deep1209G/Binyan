@@ -69,6 +69,7 @@ export default TabSwitcher;
 const styles = StyleSheet.create({
   container: {
     marginTop: theme.spacing.xxxl,
+    marginBottom: theme.spacing.md,
     backgroundColor: theme.colors.white,
     borderRadius: theme.radius.dl,
     height: 46,
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 4,
   },
+
   btn: {
     height: 40,
     width: 170,
@@ -84,6 +86,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
   selectedBtn: {
     // Add shadow or specific border for selected state if needed
     elevation: 2,
