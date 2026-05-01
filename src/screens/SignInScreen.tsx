@@ -3,12 +3,12 @@ import React from 'react';
 import theme from '../theme';
 import CustomTextInput from '../components/CutomTextInput';
 import Icon from 'react-native-vector-icons/Ionicons';
-import GradientButton from '../components/GradientButton';
 import SocialIconButton from '../components/SocialIconButton';
 import LinkText from '../components/LinkText';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
+import Button from '../components/Button';
 
 
 const SignInScreen = () => {
@@ -51,12 +51,12 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
        onPress={() => console.log("forgot Password")}/>
 
     {/*Sign In Button */}
-      <GradientButton
-        title="Sign in"
-        onPress={ () => navigation.navigate('MainTabs')}
-        style={styles.btn}
-        textStyle={styles.btnText}
-      />
+      <Button 
+      onPress={() => navigation.navigate('MainTabs')}
+      title="Sign in"
+      stylebtn={styles.btn}
+      styleText= {styles.btntext}/>
+  
 
     {/*Dont have account */}
       <View style={styles.signUpcontainer}>
@@ -136,9 +136,10 @@ const styles = StyleSheet.create({
     height: 60,
     width: '100%',
     marginTop:theme.spacing.md,
+    borderRadius:theme.radius.xl,
   },
 
-  btnText: {
+  btntext: {
     fontSize: theme.typography.medium,
   },
 
