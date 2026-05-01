@@ -6,7 +6,7 @@ import theme from '../../theme';
 import SearchBar from '../../components/Home/SearchBar';
 import AllServiceCard from '../../components/Service/AllServiceCard';
 import { services } from '../../data/Services';
-import GradientButton from '../../components/GradientButton';
+import Button from '../../components/Button';
 
 
 const ServiceScreen = () => {
@@ -34,12 +34,11 @@ const ServiceScreen = () => {
     />
 
     {/*Select Button*/}
-    <GradientButton 
-    title="Select"
-    style={styles.btn}
-    textStyle={styles.btntext}
-    onPress={() => console.log("Selected")}
-    />
+    <Button
+      onPress={() => console.log("Selected")}
+      title="Select"
+      stylebtn={styles.btn}
+      styleText= {styles.btntext} />
 
     </SafeAreaView>
   );
@@ -57,9 +56,10 @@ const styles = StyleSheet.create({
     marginTop:theme.spacing.md,
   },
   btn:{
-    height: 60,
+    height: 55,
     width: '100%',
     marginTop:theme.spacing.md,
+    borderRadius:theme.radius.md,
   },
   btntext:{
     fontSize: theme.typography.medium,
