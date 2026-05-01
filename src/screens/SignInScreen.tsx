@@ -133,10 +133,10 @@ const styles = StyleSheet.create({
 
 
   btn: {
-    height: 60,
+    height: 55,
     width: '100%',
     marginTop:theme.spacing.md,
-    borderRadius:theme.radius.xl,
+    borderRadius:theme.radius.md,
   },
 
   btntext: {

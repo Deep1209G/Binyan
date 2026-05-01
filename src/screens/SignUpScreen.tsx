@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import theme from '../theme';
 import CustomTextInput from '../components/CutomTextInput';
 import Icon from 'react-native-vector-icons/Ionicons';
-import GradientButton from '../components/GradientButton';
 import SocialIconButton from '../components/SocialIconButton';
 import LinkText from '../components/LinkText';
 import { useNavigation } from '@react-navigation/native';
@@ -11,6 +10,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
 import CountryPicker, { CountryCode } from 'react-native-country-picker-modal';
 import Checkbox from '../components/CheckBox';
+import Button from '../components/Button';
 
 const SignInScreen = () => {
   const navigation =
@@ -96,13 +96,11 @@ const SignInScreen = () => {
       </View>
 
       {/*Sign Up Button */}
-
-      <GradientButton
-        title="Sign Up"
-        onPress={() => navigation.navigate('SignIn')}
-        style={styles.btn}
-        textStyle={styles.btnText}
-      />
+      <Button
+      onPress={() => navigation.navigate('SignIn')}
+      title="Sign in"
+      stylebtn={styles.btn}
+      styleText= {styles.btntext}/>
 
       {/*Terms */}
 
@@ -222,12 +220,13 @@ const styles = StyleSheet.create({
   },
 
   btn: {
-    height: 60,
+    height: 55,
     width: '100%',
+    borderRadius:theme.radius.md,
     marginTop: theme.spacing.md,
   },
 
-  btnText: {
+  btntext: {
     fontSize: theme.typography.medium,
   },
 
