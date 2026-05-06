@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable } from 'react-native'
+import { StyleSheet, Pressable,StyleProp, ViewStyle } from 'react-native'
 import React from 'react'
 import  Icon  from 'react-native-vector-icons/Ionicons'
 import theme from '../../theme'
@@ -8,12 +8,13 @@ type PressableIconProps ={
     name:string,
     size:number,
     onPress:() => void;
+    style?: StyleProp<ViewStyle>;
 }
 
-const PressableIcon = ({name, size, onPress}:PressableIconProps) => {
+const PressableIcon = ({name, size, onPress,style}:PressableIconProps) => {
   return (
     
-    <Pressable style={styles.container} onPress={onPress}>
+    <Pressable style={[styles.container, style]} onPress={onPress}>
         <Icon name={name} size={size} color={theme.colors.textSecondary} />
     </Pressable>
    

@@ -34,7 +34,7 @@ const ProfileDetail = () => {
         {/*Button*/}
         <View style={styles.btncontainer}>
          <Button
-         title = "Edit"
+         title = "Edit Profile"
          onPress={() => console.log("Edit tab")}
          stylebtn={styles.btn}
          colors={[theme.colors.mutedgrayishtaupe, theme.colors.mutedgrayishtaupe]}

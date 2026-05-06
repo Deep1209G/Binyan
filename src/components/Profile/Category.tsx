@@ -42,7 +42,7 @@ export default Category;
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: theme.spacing.lg,
+     paddingVertical: theme.spacing.md,
   },
 
   item: {
