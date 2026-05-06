@@ -8,10 +8,8 @@ const Posts = () => {
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-
         {/* HEADER */}
         <View style={styles.header}>
-          
           {/* LEFT SIDE */}
           <View style={styles.left}>
             <Image
@@ -45,6 +43,19 @@ const Posts = () => {
           />
         </View>
 
+        <Text style={styles.text}>
+          Just Finished overseeing a major renovation project in downtown Abu
+          Dhabi. The transformation is incredible
+        </Text>
+
+        <View style={styles.row}>
+          <View style={styles.subtextcontainer}>
+            <Text style={styles.subtext}>#RealEstate</Text>
+          </View>
+          <View style={styles.subtextcontainer}>
+            <Text style={styles.subtext}>#Construction</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -120,5 +131,30 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.round,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  text: {
+    marginTop: theme.spacing.md,
+    fontFamily: theme.fontFamily.regular,
+    fontSize: theme.typography.small,
+    color: theme.colors.textSecondary,
+  },
+  row:{
+    flexDirection:'row',
+    gap:theme.spacing.sm,
+  },
+  subtextcontainer: {
+    marginTop: theme.spacing.md,
+    height: 20,
+    paddingHorizontal: theme.spacing.sm,
+    backgroundColor: theme.colors.border,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+  },
+  subtext: {
+    fontFamily: theme.fontFamily.medium,
+    fontSize: theme.typography.small,
+    color: theme.colors.primary,
   },
 });
