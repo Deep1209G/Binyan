@@ -21,10 +21,11 @@ const theme = {
     offWhite:"#f6f1e4",
     pastelOrange:"#F2D4C4",
     chineseSilver:"#CACACA",
-    mutedbluegray:"#535763"
+    mutedbluegray:"#535763",
+    brightazure:"#00aaff",
   },
 
-  gradient: ['#FF9A3D', '#FF6A00', '#FF3D00'],
+  gradient: ['#FB7405', '#E15017', '#C3262C'],
 
   spacing: {
     ts:2,

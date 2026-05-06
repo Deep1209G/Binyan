@@ -9,7 +9,7 @@ import RequestCard from '../../components/Request/RequestCard';
 const RequestScreen = () => {
   const [activeTab, setActiveTab] = useState<'private' | 'public'>('private');
   const privateData = [1, 2, 3, 4];
-  const publicData = [1, 2, 3];
+  const publicData = [1, 2, ];
 
   return (
     <SafeAreaView style={styles.maincontainer}>

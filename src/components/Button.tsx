@@ -8,12 +8,13 @@ type ButtonProps = {
     onPress: () => void;
     stylebtn?: StyleProp<ViewStyle>;
     styleText?: StyleProp<TextStyle>;
+    colors?: string[];
 }
-const Button = ({title, onPress, stylebtn , styleText}:ButtonProps) => {
+const Button = ({title, onPress, stylebtn , styleText, colors}:ButtonProps) => {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress}>   
         <LinearGradient
-        colors={theme.gradient}
+        colors={colors || theme.gradient}
         style={[styles.container, stylebtn]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}>
