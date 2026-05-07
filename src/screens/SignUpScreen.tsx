@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Modal,
+} from 'react-native';
 import React, { useState } from 'react';
 import theme from '../theme';
 import CustomTextInput from '../components/CutomTextInput';
@@ -11,6 +18,8 @@ import { RootStackParamList } from '../../App';
 import CountryPicker, { CountryCode } from 'react-native-country-picker-modal';
 import Checkbox from '../components/CheckBox';
 import Button from '../components/Button';
+import Images from '../assets/images/image';
+import PressableIcon from '../components/Home/PressableIcon';
 
 const SignInScreen = () => {
   const navigation =
@@ -18,6 +27,7 @@ const SignInScreen = () => {
   const [countryCode, setCountryCode] = useState<CountryCode>('AE');
   const [callingCode, setCallingCode] = useState<string>('971');
   const [visible, setVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -96,11 +106,41 @@ const SignInScreen = () => {
       </View>
 
       {/*Sign Up Button */}
+      <Modal 
+      animationType="slide" 
+      visible={modalVisible} 
+      transparent={true}
+      >
+        <View  style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <PressableIcon
+              name="close-outline"
+              size={25}
+              onPress={() =>  setModalVisible(false)}
+              style={styles.backbtn}
+            />
+            <Image source={Images.congratulation} style={styles.congicon} />
+            <Text style={styles.modaltitle}>Congratulations!</Text>
+            <Text style={styles.modalsubtitle}>
+              You have successfully created account. Let’s start a memorable
+              journey with us
+            </Text>
+            <Button
+              onPress={() => navigation.navigate("SignIn")}
+              title="Let’s Go"
+              stylebtn={styles.modalbtn}
+              styleText={styles.btntext}
+            />
+          </View>
+        </View>
+      </Modal>
+
       <Button
-      onPress={() => navigation.navigate('SignIn')}
-      title="Sign in"
-      stylebtn={styles.btn}
-      styleText= {styles.btntext}/>
+        onPress={() => setModalVisible(true)}
+        title="Sign in"
+        stylebtn={styles.btn}
+        styleText={styles.btntext}
+      />
 
       {/*Terms */}
 
@@ -222,7 +262,7 @@ const styles = StyleSheet.create({
   btn: {
     height: 55,
     width: '100%',
-    borderRadius:theme.radius.md,
+    borderRadius: theme.radius.md,
     marginTop: theme.spacing.md,
   },
 
@@ -246,6 +286,7 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.medium,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
+    textDecorationLine: 'underline',
   },
 
   termsContainer: {
@@ -342,5 +383,46 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
     fontWeight: theme.fontWeight.medium,
     textDecorationLine: 'underline',
+  },
+
+  // Modal
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:theme.colors.transparent,
+  },
+  modalView: {
+    padding: theme.spacing.lg,
+    height: 320,
+    width: 343,
+    backgroundColor:theme.colors.surface,
+    borderRadius:theme.radius.md,
+  },
+
+  backbtn: {
+    alignSelf: 'flex-end',
+  },
+  congicon: {
+    alignSelf: 'center',
+  },
+  modalsubtitle: {
+    marginTop:theme.spacing.lg,
+    textAlign:'center',
+    fontFamily:theme.fontFamily.regular,
+    fontSize:theme.typography.regular,
+    color:theme.colors.mutedbluegray,
+  },
+  modaltitle: {
+    marginTop:theme.spacing.xl,
+    alignSelf: 'center',
+    fontFamily:theme.fontFamily.medium,
+    fontSize:theme.typography.dl,
+  },
+  modalbtn: {
+    alignSelf: 'center',
+    marginTop:theme.spacing.xxl,
+    height: 46,
+    width: 322,
   },
 });

@@ -4,8 +4,8 @@ import theme from '../../../theme'
 
 const BookMark = () => {
   return (
-    <View>
-      <Text style={styles.container}>BookMark</Text>
+    <View  style={styles.container}>
+      <Text style={styles.text}>BookMark</Text>
     </View>
   )
 }
@@ -13,7 +13,14 @@ const BookMark = () => {
 export default BookMark
 
 const styles = StyleSheet.create({
-     container:{
-      paddingHorizontal: theme.spacing.xl,
+  
+  container:{
+    height:200,
+    backgroundColor:"white",
+    paddingHorizontal: theme.spacing.xl,
+  },
+  
+  text:{
+      
      },
 })

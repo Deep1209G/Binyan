@@ -63,7 +63,7 @@ const Tab = createBottomTabNavigator<TabParamList>();
 const BottomTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Profile"
+      initialRouteName="Home"
       screenOptions={({ route }) => ({
         tabBarIcon: getTabIcon(route),
         tabBarButton: TabBarButton, // Referenced here instead of defined inline

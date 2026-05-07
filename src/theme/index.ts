@@ -23,6 +23,7 @@ const theme = {
     chineseSilver:"#CACACA",
     mutedbluegray:"#535763",
     brightazure:"#00aaff",
+    transparent:"rgba(0, 0, 0, 0.5)",
   },
 
   gradient: ['#FB7405', '#E15017', '#C3262C'],
@@ -59,6 +60,7 @@ const theme = {
     large: 18,
     xl:20,
     xxl: 22,
+    dl:24,
     heading: 26,
   },
 

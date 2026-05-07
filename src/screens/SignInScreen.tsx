@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Modal } from 'react-native';
 import React from 'react';
 import theme from '../theme';
 import CustomTextInput from '../components/CutomTextInput';
@@ -45,6 +45,11 @@ const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>(
       </View>
 
     {/*Forgot Password */}
+    <Modal
+    >
+
+    </Modal>
+   
       <LinkText
        title='Forgot password?'
        style={styles.forgotPassword}
