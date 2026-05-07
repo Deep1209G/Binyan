@@ -10,7 +10,7 @@ const theme = {
     white: '#ffffff',
     black: '#000000',
     background: '#ffffff',
-    surface: '#EDEDED',
+    surface: '#E4E4E4',
     backgroundDot: 'rgb(238, 216, 196)',
     border: '#dddddd',
     selected: '#FF6A00',

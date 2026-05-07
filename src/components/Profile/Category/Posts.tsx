@@ -40,6 +40,7 @@ const Posts = () => {
             size={20}
             style={styles.icon}
             onPress={() => console.log('menu')}
+            color={theme.colors.textSecondary}
           />
         </View>
 
@@ -56,6 +57,46 @@ const Posts = () => {
             <Text style={styles.subtext}>#Construction</Text>
           </View>
         </View>
+
+        {/*Inner Card*/}
+        <View style={styles.card}>
+          <View style={styles.wrap}>
+            <View style={styles.icontext}>
+              <PressableIcon
+                name="heart-outline"
+                size={25}
+                style={styles.cardicon}
+                onPress={() => console.log('Like')}
+                color={theme.colors.white}
+              />
+              <Text style={styles.cardicontext}>Like</Text>
+            </View>
+
+            <View style={styles.icontext}>
+              <PressableIcon
+                name="chatbubble-ellipses-outline"
+                size={25}
+                style={styles.cardicon}
+                color={theme.colors.white}
+                onPress={() => console.log('comment')}
+              />
+              <Text style={styles.cardicontext}>Comment</Text>
+            </View>
+
+            <View style={styles.icontext}>
+              <PressableIcon
+                name="send-outline"
+                size={20}
+                style={styles.cardicon}
+                color={theme.colors.white}
+                onPress={() => console.log('Share')}
+              />
+              <Text style={styles.cardicontext}>Share</Text>
+            </View>
+          </View>
+        </View>
+
+
       </View>
     </View>
   );
@@ -137,16 +178,17 @@ const styles = StyleSheet.create({
     fontFamily: theme.fontFamily.regular,
     fontSize: theme.typography.small,
     color: theme.colors.textSecondary,
+    width:300,
   },
-  row:{
-    flexDirection:'row',
-    gap:theme.spacing.sm,
+  row: {
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
   },
   subtextcontainer: {
-    marginTop: theme.spacing.md,
+    marginTop: theme.spacing.lg,
     height: 20,
     paddingHorizontal: theme.spacing.sm,
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.surface,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
@@ -156,5 +198,42 @@ const styles = StyleSheet.create({
     fontFamily: theme.fontFamily.medium,
     fontSize: theme.typography.small,
     color: theme.colors.primary,
+  },
+
+  card: {
+    marginTop: theme.spacing.lg,
+    height: 356,
+    backgroundColor: theme.colors.border,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+  },
+  cardicon: {
+    backgroundColor: theme.colors.surface,
+    height: 40,
+    width: 40,
+    borderRadius: theme.radius.round,
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.colors.white,
+  },
+  cardicontext: {
+    color: theme.colors.white,
+    fontFamily: theme.fontFamily.regular,
+    fontSize: theme.typography.small,
+    textAlign: 'center',
+    width: '100%',
+  },
+
+  icontext: {
+    width: 60,
+    alignItems: 'center',
+    gap: theme.spacing.xs,
+    marginBottom: theme.spacing.md,
+  },
+
+  wrap: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
   },
 });

@@ -13,61 +13,71 @@ import BookMark from '../../components/Profile/Category/BookMark';
 import About from '../../components/Profile/Category/About';
 import AfflilateProgram from '../../components/Profile/Category/AfflilateProgram';
 import SocialLinks from '../../components/Profile/Category/SocialLinks';
-import Bathroom from '../../components/Profile/Category/Bathroom';
 import theme from '../../theme';
+import PressableIcon from '../../components/Home/PressableIcon';
 
 const ProfileScreen = () => {
   const [selectedId, setSelectedId] = useState('posts');
 
   const componentMap: any = {
-    'posts': Posts,
-    'bookmark': BookMark,
-    'bathroom': Bathroom,
-    'about': About,
-    'affiliate': AfflilateProgram,
-    'social': SocialLinks,
+    posts: Posts,
+    bookmark: BookMark,
+    about: About,
+    affiliate: AfflilateProgram,
+    social: SocialLinks,
   };
   const SelectedComponent = componentMap[selectedId] || Posts;
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.main}>
-        {/*Header */}
-        <Header />
+        <View style={styles.main}>
+          {/*Header */}
+          <Header />
 
-        {/*Profile Image */}
-        <View style={styles.overlap}>
-          <ProfileImage />
+          {/*Profile Image */}
+          <View style={styles.overlap}>
+            <ProfileImage />
+          </View>
+
+          {/*Profile Detail Card */}
+          <ProfileDetail />
+
+          {/*Profile Detail Card */}
+          <StoryHighlights />
+
+          {/*Category*/}
+          <FlatList
+            data={category}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Category
+                title={item.title}
+                active={item.id === selectedId}
+                onPress={() => setSelectedId(item.id)}
+              />
+            )}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.category}
+          />
+
+          <View>
+            <SelectedComponent />
+          </View>
         </View>
-
-        {/*Profile Detail Card */}
-        <ProfileDetail />
-
-        {/*Profile Detail Card */}
-        <StoryHighlights />
-
-        {/*Category*/}
-        <FlatList
-          data={category}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <Category
-              title={item.title}
-              active={item.id === selectedId}
-              onPress={() => setSelectedId(item.id)}
-            />
-          )}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.category}
-        />
-
-        <View>
-          <SelectedComponent />
-        </View>
-      </View>
       </ScrollView>
+     
+      <View style={styles.addoverlap}>
+        <PressableIcon
+          name="add-outline"
+          size={25}
+          style={styles.icon}
+          onPress={() => console.log('menu')}
+          color={theme.colors.cosmicLatte}
+        />
+      </View>
+
     </SafeAreaView>
   );
 };
@@ -83,8 +93,18 @@ const styles = StyleSheet.create({
     left: 5,
     zIndex: 1,
   },
-  category:{
-    paddingHorizontal:theme.spacing.xl,
+  category: {
+    paddingHorizontal: theme.spacing.xl,
   },
-
+  icon: {
+    backgroundColor: theme.colors.black,
+    height:58,
+    width:58,
+  },
+  addoverlap: {
+    position: 'absolute',
+    bottom: 106,
+    right: 23,
+    zIndex: 1,
+  },
 });

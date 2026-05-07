@@ -11,12 +11,14 @@ const Header = () => {
           name="notifications-outline"
           size={20}
           onPress={() => console.log('Notification')}
+          color={theme.colors.textSecondary}
         />
 
         <PressableIcon
-          name="flower-outline"
+          name="settings-outline"
           size={20}
           onPress={() => console.log('Setting')}
+          color={theme.colors.textSecondary}
         />
       </View>
     </View>
