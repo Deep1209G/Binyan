@@ -24,6 +24,7 @@ const theme = {
     mutedbluegray:"#535763",
     brightazure:"#00aaff",
     transparent:"rgba(0, 0, 0, 0.5)",
+    winterSky:"#F5F5F7",
   },
 
   gradient: ['#FB7405', '#E15017', '#C3262C'],

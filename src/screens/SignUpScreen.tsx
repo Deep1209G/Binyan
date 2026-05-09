@@ -116,7 +116,7 @@ const SignInScreen = () => {
             <PressableIcon
               name="close-outline"
               size={25}
-              onPress={() =>  setModalVisible(false)}
+              onPress={() =>  navigation.navigate("SignIn")}
               style={styles.backbtn}
             />
             <Image source={Images.congratulation} style={styles.congicon} />
@@ -396,7 +396,7 @@ const styles = StyleSheet.create({
     padding: theme.spacing.lg,
     height: 320,
     width: 343,
-    backgroundColor:theme.colors.surface,
+    backgroundColor:theme.colors.winterSky,
     borderRadius:theme.radius.md,
   },
 
