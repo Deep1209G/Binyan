@@ -27,9 +27,11 @@ const SignInScreen = () => {
   const [otp, setOtp] = useState(['', '', '', '']);
 
   return (
-    <View style={styles.container}>
-      {/*Logo */}
 
+
+    <View style={styles.container}>
+      
+      {/*Logo */}
       <View style={styles.logo}>
         <Image source={require('../assets/BinyanText.png')} />
       </View>
@@ -79,8 +81,8 @@ const SignInScreen = () => {
           setCheckEmailModalVisible(true);
         }}
       />
-      {/*Check Email Modal */}
 
+      {/*Check Email Modal */}
       <CheckEmailModal
         visible={checkEmailModalVisible}
         onClose={() => {
@@ -283,188 +285,5 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
     fontWeight: theme.fontWeight.medium,
     textDecorationLine: 'underline',
-  },
-
-  // Modal
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: theme.colors.transparent,
-  },
-  modalView: {
-    padding: theme.spacing.lg,
-    height: 320,
-    width: 343,
-    backgroundColor: theme.colors.winterSky,
-    borderRadius: theme.radius.md,
-  },
-
-  backbtn: {
-    alignSelf: 'flex-end',
-  },
-  congicon: {
-    alignSelf: 'center',
-  },
-
-  // Modal
-  modalsubtitle: {
-    marginTop: theme.spacing.sm,
-    textAlign: 'center',
-    fontFamily: theme.fontFamily.regular,
-    fontSize: theme.typography.regular,
-    color: theme.colors.mutedbluegray,
-  },
-  modaltitle: {
-    marginTop: theme.spacing.sm,
-    alignSelf: 'center',
-    fontFamily: theme.fontFamily.medium,
-    fontSize: theme.typography.dl,
-  },
-  modalInput: {
-    marginTop: theme.spacing.xxl,
-    height: 46,
-    width: 322,
-    borderRadius: theme.radius.sm,
-    alignSelf: 'center',
-  },
-  modalbtn: {
-    alignSelf: 'center',
-    marginTop: theme.spacing.xxl,
-    height: 46,
-    width: 322,
-  },
-  modalbottom: {
-    marginTop: theme.spacing.xl,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalText1: {
-    fontFamily: theme.fontFamily.regular,
-    fontSize: theme.typography.regular,
-    color: theme.colors.textSecondary,
-  },
-  modalText2: {
-    fontFamily: theme.fontFamily.medium,
-    fontSize: theme.typography.regular,
-    color: theme.colors.textPrimary,
-  },
-
-  // Otp Modal
-  otpContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginTop: theme.spacing.xl,
-  },
-
-  otpInput: {
-    width: 55,
-    height: 55,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderRadius: theme.radius.md,
-    textAlign: 'center',
-    fontSize: theme.typography.xl,
-    color: theme.colors.textPrimary,
-    backgroundColor: theme.colors.white,
-  },
-
-  otpmodallower: {
-    marginTop: theme.spacing.lg,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  otpmodalupper: {
-    marginTop: theme.spacing.sm,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  otpModalText1: {
-    fontFamily: theme.fontFamily.medium,
-    fontSize: theme.typography.regular,
-    color: theme.colors.textSecondary,
-  },
-  otpModalText2: {
-    fontFamily: theme.fontFamily.medium,
-    fontSize: theme.typography.regular,
-    color: theme.colors.textPrimary,
-  },
-  otpmodalbtn: {
-    alignSelf: 'center',
-    marginTop: theme.spacing.xxl,
-    height: 46,
-    width: 322,
-  },
-
-  // Check Email Modal
-  modalViewEmail: {
-    padding: theme.spacing.lg,
-    height: 272,
-    width: 282,
-    backgroundColor: theme.colors.winterSky,
-    borderRadius: theme.radius.md,
-  },
-  modalemailbtn: {
-    alignSelf: 'center',
-    marginTop: theme.spacing.xxl,
-    height: 46,
-    width: 254,
-  },
-  header: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  closeIcon: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-  },
-
-  emaillogo: {
-    marginTop: theme.spacing.xl,
-  },
-
-  baseText: {
-    marginTop: theme.spacing.md,
-    fontSize: theme.typography.regular,
-    color: theme.colors.textSecondary,
-    textAlign: 'center',
-  },
-  boldText: {
-    color: theme.colors.textPrimary,
-    fontFamily: theme.fontFamily.bold,
-  },
-
-  // Reset Password Modal
-  resetModalView: {
-    padding: theme.spacing.lg,
-    height: 340,
-    width: 343,
-    backgroundColor: theme.colors.winterSky,
-    borderRadius: theme.radius.md,
-  },
-  resetModalInputupper: {
-    marginTop: theme.spacing.xxl,
-    height: 46,
-    width: 322,
-    borderRadius: theme.radius.sm,
-    alignSelf: 'center',
-  },
-  resetModalInputlower: {
-    marginTop: theme.spacing.sm,
-    height: 46,
-    width: 322,
-    borderRadius: theme.radius.sm,
-    alignSelf: 'center',
-  },
-  resetmodalbtn: {
-    alignSelf: 'center',
-    marginTop: theme.spacing.xxxl,
-    height: 46,
-    width: 322,
   },
 });
