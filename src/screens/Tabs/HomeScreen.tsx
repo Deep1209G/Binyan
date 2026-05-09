@@ -18,7 +18,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
 import Header from '../../components/Home/Header';
-// FlatList (Card)
+
 
 const limitedServices = services.slice(0, 8);
 const chunkedServices = chunkArray(limitedServices, 2);
@@ -70,11 +70,12 @@ const HomeScreen = () => {
                   <ServiceCard
                     key={service.id}
                     text={service.title}
-                    onPress={() => console.log('Hello')}
+                    onPress={() => navigation.navigate('ContractorList')}
                   />
                 ))}
               </View>
             )}
+            // eslint-disable-next-line react/no-unstable-nested-components
             ListFooterComponent={() => (
               <ListFooter onPress={() => navigation.navigate('Service')} />
             )}

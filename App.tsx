@@ -7,6 +7,8 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import BottomTabs from './src/components/Tab/BottomTabs';
 import ServiceScreen from './src/screens/Tabs/ServiceScreen';
+import ContractorListScreen from './src/screens/Contractor/ContractorListScreen';
+
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -21,6 +23,7 @@ export type RootStackParamList = {
   MainTabs: undefined;
   SignUp: undefined;
   Service: undefined;
+  ContractorList: undefined;
 
 };
 
@@ -30,7 +33,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SignUp"
+        initialRouteName="ContractorList"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
@@ -39,6 +42,7 @@ const App = () => {
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="MainTabs" component={BottomTabs} />
         <Stack.Screen name="Service" component={ServiceScreen} />
+        <Stack.Screen name="ContractorList" component={ContractorListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,15 +3,20 @@ import React from 'react';
 import theme from '../../theme';
 
 type ServiceProp = {
-    title: string,
-    onPress: () => void,
-}
-const AllServiceCard = ({title, onPress}:ServiceProp) => {
+  title: string;
+  onPress: () => void;
+  active?: boolean;
+};
+const AllServiceCard = ({ title, onPress, active = false }: ServiceProp) => {
   return (
-    <Pressable onPress={onPress} style={styles.squarecontainer}>
-      <View style={styles.circlecontainer}>
-      </View>
-      <Text style={styles.text}>{title}</Text>
+    <Pressable
+      onPress={onPress}
+      style={[styles.squarecontainer, active && styles.activeContainer]}
+    >
+      <View
+        style={[styles.circlecontainer, active && styles.activeCircle]}
+       />
+      <Text style={[styles.text, active && styles.activeText]}>{title}</Text>
     </Pressable>
   );
 };
@@ -22,25 +27,32 @@ const styles = StyleSheet.create({
   squarecontainer: {
     backgroundColor: theme.colors.card,
     height: 130,
-    flex:1,
+    flex: 1,
     marginHorizontal: 5,
     marginTop: theme.spacing.md,
     borderRadius: theme.radius.md,
-    alignItems:'center',
-    flexDirection:'column'
+    alignItems: 'center',
+    flexDirection: 'column',
   },
-  circlecontainer:{
-   marginTop:theme.spacing.sm,
-   height:80,
-   width:80,
-   borderRadius:theme.radius.round,
-   backgroundColor: theme.colors.white,
+  activeContainer: {
+    backgroundColor: theme.colors.primary,
   },
-
-  text:{
-    marginTop:theme.spacing.sm,
-    fontSize:theme.typography.medium,
-    fontFamily:theme.fontFamily.medium,
-  }
-
+  circlecontainer: {
+    marginTop: theme.spacing.sm,
+    height: 80,
+    width: 80,
+    borderRadius: theme.radius.round,
+    backgroundColor: theme.colors.white,
+  },
+  activeCircle: {
+    backgroundColor: theme.colors.white,
+  },
+  text: {
+    marginTop: theme.spacing.sm,
+    fontSize: theme.typography.medium,
+    fontFamily: theme.fontFamily.medium,
+  },
+  activeText: {
+    color: theme.colors.white,
+  },
 });

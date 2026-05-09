@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-  Modal,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-} from 'react-native';
-
-import theme from '../../theme';
+import { Modal, View, Text, Image,StyleSheet } from 'react-native';
 
 import Images from '../../assets/images/image';
-
 import Button from '../Button';
 import PressableIcon from '../Home/PressableIcon';
+
+import theme from '../../theme';
 
 type Props = {
   visible: boolean;
@@ -83,17 +76,19 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.transparent,
   },
 
-  modalViewEmail: {
+    modalViewEmail: {
     padding: theme.spacing.lg,
     height: 272,
     width: 282,
-    backgroundColor: theme.colors.winterSky,
+    backgroundColor: theme.colors.surface,
     borderRadius: theme.radius.md,
   },
 
   header: {
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
   },
 
   closeIcon: {
@@ -106,8 +101,9 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.xl,
   },
 
+
   modaltitle: {
-    marginTop: theme.spacing.sm,
+    marginTop: theme.spacing.xl,
     alignSelf: 'center',
     fontFamily: theme.fontFamily.medium,
     fontSize: theme.typography.dl,
@@ -120,14 +116,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  boldText: {
+ boldText: {
     color: theme.colors.textPrimary,
     fontFamily: theme.fontFamily.bold,
   },
 
   modalemailbtn: {
     alignSelf: 'center',
-    marginTop: theme.spacing.xxl,
+    marginTop: theme.spacing.lg,
     height: 46,
     width: 254,
   },
@@ -136,3 +132,4 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.medium,
   },
 });
+

@@ -262,7 +262,6 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.medium,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
-    textDecorationLine: 'underline',
   },
 
   termsContainer: {
@@ -281,7 +280,6 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.regular,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
-    textDecorationLine: 'underline',
   },
 
   policyContainer: {
@@ -300,7 +298,6 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.regular,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
-    textDecorationLine: 'underline',
   },
 
   containerOr: {
@@ -358,7 +355,7 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
     fontWeight: theme.fontWeight.medium,
-    textDecorationLine: 'underline',
+  
   },
 
 });

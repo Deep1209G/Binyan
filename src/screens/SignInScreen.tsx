@@ -225,8 +225,6 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.medium,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
-    textDecorationLine: 'underline',
-    textDecorationColor: 'black',
   },
 
   containerOr: {
@@ -284,6 +282,5 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
     fontWeight: theme.fontWeight.medium,
-    textDecorationLine: 'underline',
   },
 });
