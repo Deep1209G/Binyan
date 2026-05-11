@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, View, TextInputProps } from 'react-native';
+import { StyleSheet, TextInput, View, TextInputProps,ViewStyle, StyleProp } from 'react-native';
 import React from 'react';
 import theme from '../theme';
 
@@ -6,16 +6,18 @@ interface CustomTextInputProps extends TextInputProps {
   icon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   prefix?: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 }
 const CustomTextInput = ({
   icon,
   rightIcon,
   prefix,
+  style,
   ...props
   
 }: CustomTextInputProps) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       {icon && <View style={styles.leftIcon}>{icon}</View>}
       
        {prefix && <View style={styles.prefix}>{prefix}</View>}

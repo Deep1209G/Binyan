@@ -13,10 +13,10 @@ interface GradientButtonProps {
 
 const GradientButton = ({title, onPress, style, textStyle}: GradientButtonProps) => {
     return(
-        <Pressable onPress={onPress} style={style}>
+        <Pressable onPress={onPress}  style={style}>
             <LinearGradient
             colors={theme.gradient}
-            style = {[styles.button, style]}
+            style = {styles.button}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             >
@@ -25,7 +25,6 @@ const GradientButton = ({title, onPress, style, textStyle}: GradientButtonProps)
                 </Text>
             </LinearGradient>
         </Pressable>
-
     )
 };
 
