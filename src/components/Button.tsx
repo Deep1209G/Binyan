@@ -2,7 +2,6 @@ import { Pressable, StyleSheet, ViewStyle, StyleProp, Text, TextStyle} from 'rea
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient';
 import theme from '../theme';
-import { DeviceHelper } from '../utils/DeviceHelper';
 
 type ButtonProps = {
     title: string;
@@ -29,8 +28,7 @@ export default Button
 
 const styles = StyleSheet.create({
     container:{
-        height:DeviceHelper.calHeight(46),
-        width:DeviceHelper.calWidth(343),
+        height:36,
         borderRadius:theme.radius.sm,
         alignItems:'center',
         justifyContent:'center',

@@ -40,6 +40,8 @@ const theme = {
     xxxl: 32,
     dl: 64,
     dll:74,
+    dllx: 128,
+
   },
 
   radius: {

@@ -4,10 +4,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import SelectableItem from '../components/SelectableItem';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProgressDot from '../components/ProgressDot';
-import GradientButton from '../components/GradientButton';
 import SkipButton from '../components/SkipButton';
 import { RootStackParamList } from '../../App';
 import theme from '../theme';
+import Button from '../components/Button';
 
 const { width, height } = Dimensions.get('window');
 
@@ -111,7 +111,9 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
           <View style={styles.row}>
             <SelectableItem
               variant="card"
-              icon={<Icon name="person" size={18} color={theme.colors.primary} />}
+              icon={
+                <Icon name="person" size={18} color={theme.colors.primary} />
+              }
               label="Browse"
               selected={serviceType === 'Browse'}
               onPress={() => setServiceType('Browse')}
@@ -119,7 +121,9 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
 
             <SelectableItem
               variant="card"
-              icon={<Icon name="business" size={18} color={theme.colors.primary} />}
+              icon={
+                <Icon name="business" size={18} color={theme.colors.primary} />
+              }
               label="Create Profile"
               selected={serviceType === 'Create Profile'}
               onPress={() => setServiceType('Create Profile')}
@@ -221,7 +225,12 @@ const OnBoardingScreen = ({ navigation }: OnBoardingFlowScreenProps) => {
 
       <View style={styles.bottom}>
         <ProgressDot total={DATA.length} current={currentIndex} />
-        <GradientButton title="Next" onPress={handleNext} />
+        <Button
+          onPress={handleNext}
+          title="Next"
+          stylebtn={styles.btn}
+          styleText={styles.btntext}
+        />
       </View>
     </View>
   );
@@ -253,7 +262,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: theme.spacing.xl,
     justifyContent: 'flex-end',
-    paddingBottom: theme.spacing.dll,
+    paddingBottom: theme.spacing.dllx,
   },
 
   centerContent: {
@@ -290,5 +299,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  btntext:{
+    
+ color:theme.colors.white,
+    fontFamily: theme.fontFamily.bold,
+    fontSize:theme.typography.regular,
+  },
+  btn: {
+    height:46,
+    width:78,
+    borderRadius: theme.radius.md,
+    alignItems: "center",
   },
 });
