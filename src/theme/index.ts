@@ -39,7 +39,7 @@ const theme = {
     xxl: 24,
     xxxl: 32,
     dl: 64,
-    dll: 128,
+    dll:74,
   },
 
   radius: {

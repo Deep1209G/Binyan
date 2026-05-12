@@ -9,6 +9,7 @@ import {
   StyleProp 
 } from 'react-native'
 import theme from '../theme';
+import { DeviceHelper } from '../utils/DeviceHelper';
 
 
 
@@ -23,7 +24,9 @@ const SocialIconButton = ({name, style}:Props) => {
       <Pressable style={styles.btn}>
       <Image
       source={SocialIcon[name]}
-      style={[styles.image, style]} />
+      style={[styles.image, style]}
+      resizeMode="contain" 
+      />
       </Pressable>
     </View>
   )
@@ -37,9 +40,9 @@ const styles = StyleSheet.create({
   },
 
   btn:{
-    width: 110,
-    height: 60,
-    borderRadius: theme.radius.lg, // you can later replace with theme.radius.round
+    width:DeviceHelper.calWidth(106),
+    height:DeviceHelper.calHeight(46),
+    borderRadius: theme.radius.md, // you can later replace with theme.radius.round
     backgroundColor: theme.colors.white,
     alignItems: 'center',
     justifyContent: 'center',
@@ -47,7 +50,8 @@ const styles = StyleSheet.create({
     
   },
   image:{
-    width:27,
-    height:25,
-  },
+    width:DeviceHelper.calWidth(27),
+    height:DeviceHelper.calHeight(27),
+  }
 })
+  

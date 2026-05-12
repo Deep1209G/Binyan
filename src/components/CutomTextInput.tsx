@@ -1,6 +1,14 @@
-import { StyleSheet, TextInput, View, TextInputProps,ViewStyle, StyleProp } from 'react-native';
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  TextInputProps,
+  ViewStyle,
+  StyleProp,
+} from 'react-native';
 import React from 'react';
 import theme from '../theme';
+
 
 interface CustomTextInputProps extends TextInputProps {
   icon?: React.ReactNode;
@@ -14,13 +22,12 @@ const CustomTextInput = ({
   prefix,
   style,
   ...props
-  
 }: CustomTextInputProps) => {
   return (
     <View style={[styles.container, style]}>
       {icon && <View style={styles.leftIcon}>{icon}</View>}
-      
-       {prefix && <View style={styles.prefix}>{prefix}</View>}
+
+      {prefix && <View style={styles.prefix}>{prefix}</View>}
       <TextInput
         style={styles.text}
         placeholderTextColor={theme.colors.textSecondary}
@@ -39,13 +46,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: theme.colors.white,
     borderRadius: theme.radius.lg,
-    paddingHorizontal: theme.spacing.md,
+    paddingHorizontal: theme.spacing.lg,
     paddingVertical: theme.spacing.xs,
   },
 
   text: {
     flex: 1,
-    fontSize: theme.typography.medium,
+    fontSize: theme.typography.regular,
+    fontFamily: theme.fontFamily.regular,
   },
 
   leftIcon: {
@@ -56,12 +64,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 
- prefix: {
-  marginRight: 8,
-  paddingHorizontal: 10,
-  justifyContent: 'center',
-  borderRightWidth: 1,
-  borderColor: '#ddd',
-},
-
+  prefix: {
+    marginRight: 8,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+    borderRightWidth: 1,
+    borderColor: '#ddd',
+  },
 });

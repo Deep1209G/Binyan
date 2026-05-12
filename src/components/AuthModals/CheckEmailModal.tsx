@@ -6,6 +6,7 @@ import Button from '../Button';
 import PressableIcon from '../Home/PressableIcon';
 
 import theme from '../../theme';
+import { DeviceHelper } from '../../utils/DeviceHelper';
 
 type Props = {
   visible: boolean;
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     modalViewEmail: {
     padding: theme.spacing.lg,
     height: 272,
-    width: 282,
+    width: DeviceHelper.calWidth(282),
     backgroundColor: theme.colors.surface,
     borderRadius: theme.radius.md,
   },
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: theme.spacing.lg,
     height: 46,
-    width: 254,
+    width: DeviceHelper.calWidth(254),
   },
 
   btntext: {

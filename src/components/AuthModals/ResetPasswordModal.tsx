@@ -13,7 +13,7 @@ import theme from '../../theme';
 import Button from '../Button';
 import PressableIcon from '../Home/PressableIcon';
 import CustomTextInput from '../CutomTextInput';
-
+import { DeviceHelper } from '../../utils/DeviceHelper';
 type Props = {
   visible: boolean;
   onClose: () => void;
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   resetModalView: {
     padding: theme.spacing.lg,
     height: 340,
-    width: 343,
+    width: DeviceHelper.calWidth(343),
     backgroundColor: theme.colors.winterSky,
     borderRadius: theme.radius.md,
   },
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   resetModalInputupper: {
     marginTop: theme.spacing.xxl,
     height: 46,
-    width: 322,
+    width: DeviceHelper.calWidth(322),
     borderRadius: theme.radius.sm,
     alignSelf: 'center',
   },
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   resetModalInputlower: {
     marginTop: theme.spacing.sm,
     height: 46,
-    width: 322,
+    width: DeviceHelper.calWidth(322),
     borderRadius: theme.radius.sm,
     alignSelf: 'center',
   },
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: theme.spacing.xxxl,
     height: 46,
-    width: 322,
+    width: DeviceHelper.calWidth(322),
   },
 
   btntext: {

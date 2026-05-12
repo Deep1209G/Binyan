@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 import theme from '../theme';
 import CustomTextInput from '../components/CutomTextInput';
@@ -14,6 +15,7 @@ import OtpModal from '../components/AuthModals/OtpModal';
 import CheckEmailModal from '../components/AuthModals/CheckEmailModal';
 import ResetPasswordModal from '../components/AuthModals/ResetPasswordModal';
 import SuccessModal from '../components/AuthModals/SuccessModal';
+import { DeviceHelper } from '../utils/DeviceHelper';
 
 const SignInScreen = () => {
   const navigation =
@@ -27,13 +29,17 @@ const SignInScreen = () => {
   const [otp, setOtp] = useState(['', '', '', '']);
 
   return (
-
-
-    <View style={styles.container}>
-      
+    <SafeAreaView style={styles.mainContainer}>
       {/*Logo */}
       <View style={styles.logo}>
-        <Image source={require('../assets/BinyanText.png')} />
+        <Image
+          source={require('../assets/BinyanText.png')}
+          style={{
+            width: DeviceHelper.calWidth(184.61),
+            height: DeviceHelper.calHeight(50.46),
+          }}
+          resizeMode="contain"
+        />
       </View>
 
       {/*Title */}
@@ -42,6 +48,7 @@ const SignInScreen = () => {
       {/*Mail */}
       <View style={styles.inputContainer}>
         <CustomTextInput
+          style={{ borderRadius: theme.radius.md }}
           icon={
             <Icon name="mail-outline" size={20} color={theme.colors.black} />
           }
@@ -50,6 +57,7 @@ const SignInScreen = () => {
 
         {/*Password */}
         <CustomTextInput
+          style={{ borderRadius: theme.radius.md }}
           icon={
             <Icon name="key-outline" size={20} color={theme.colors.black} />
           }
@@ -162,21 +170,21 @@ const SignInScreen = () => {
           onPress={() => navigation.navigate('MainTabs')}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 export default SignInScreen;
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1,
-    padding: theme.spacing.lg,
+    paddingVertical: theme.spacing.md,
+    paddingHorizontal: theme.spacing.xl,
   },
 
   logo: {
     alignItems: 'center',
-    marginTop: theme.spacing.xxxl,
   },
 
   title: {
@@ -195,7 +203,8 @@ const styles = StyleSheet.create({
     color: theme.colors.accent,
     marginTop: theme.spacing.md,
     alignSelf: 'flex-end',
-    fontWeight: theme.fontWeight.medium,
+    fontFamily: theme.fontFamily.medium,
+    fontSize: theme.typography.small,
   },
 
   btn: {
@@ -254,18 +263,18 @@ const styles = StyleSheet.create({
   },
 
   scoialIconApple: {
-    width: 22,
-    height: 24,
+    width: DeviceHelper.calWidth(20),
+    height: DeviceHelper.calHeight(22),
   },
 
   scoialIconGoogle: {
-    width: 26,
-    height: 24,
+    height: DeviceHelper.calHeight(22),
+    width: DeviceHelper.calWidth(20),
   },
 
   scoialIconFacebook: {
-    width: 26,
-    height: 26,
+    width: DeviceHelper.calWidth(22),
+    height: DeviceHelper.calHeight(22),
   },
 
   bottom: {
@@ -277,10 +286,11 @@ const styles = StyleSheet.create({
   bottomText: {
     fontSize: theme.typography.xl,
     color: theme.colors.textSecondary,
+    fontFamily: theme.fontFamily.medium,
   },
   guestText: {
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
-    fontWeight: theme.fontWeight.medium,
+    fontFamily: theme.fontFamily.medium,
   },
 });

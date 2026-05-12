@@ -11,6 +11,7 @@ import theme from '../../theme';
 import Images from '../../assets/images/image';
 import PressableIcon from '../Home/PressableIcon';
 import Button from '../Button';
+import { DeviceHelper } from '../../utils/DeviceHelper';
 
 type CongratulationModalProps = {
   visible: boolean;
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   modalView: {
     padding: theme.spacing.lg,
     height: 320,
-    width: 343,
+    width: DeviceHelper.calWidth(343),
     backgroundColor: theme.colors.winterSky,
     borderRadius: theme.radius.md,
   },
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: theme.spacing.xxl,
     height: 46,
-    width: 322,
+    width: DeviceHelper.calWidth(322),
   },
 
   btntext: {

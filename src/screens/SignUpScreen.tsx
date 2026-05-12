@@ -4,8 +4,10 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import theme from '../theme';
 import CustomTextInput from '../components/CutomTextInput';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -17,190 +19,247 @@ import { RootStackParamList } from '../../App';
 import CountryPicker, { CountryCode } from 'react-native-country-picker-modal';
 import Checkbox from '../components/CheckBox';
 import Button from '../components/Button';
-
 import CongratulationModal from '../components/AuthModals/CongratulationModal';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { DeviceHelper } from '../utils/DeviceHelper';
 
-const SignInScreen = () => {
+const SignUpScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const [countryCode, setCountryCode] = useState<CountryCode>('AE');
   const [callingCode, setCallingCode] = useState<string>('971');
   const [visible, setVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
+  const handleSignup = async () => {
+    try {
+      const userData = {
+        name,
+        email,
+        password,
+        phone,
+      };
+
+      await AsyncStorage.setItem('user', JSON.stringify(userData));
+
+      console.log('User Saved');
+
+      setModalVisible(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.logo}>
-        <Image source={require('../assets/BinyanText.png')} />
-      </View>
-
-      <Text style={styles.title}>Sign up</Text>
-
-      {/* Name */}
-
-      <View style={styles.inputContainer}>
-        <CustomTextInput
-          icon={
-            <Icon name="person-outline" size={20} color={theme.colors.black} />
-          }
-          placeholder="First Name"
-        />
-
-        {/* Password */}
-
-        <CustomTextInput
-          icon={
-            <Icon name="key-outline" size={20} color={theme.colors.black} />
-          }
-          placeholder="Password"
-        />
-
-        {/* Email */}
-
-        <CustomTextInput
-          icon={
-            <Icon name="mail-outline" size={20} color={theme.colors.black} />
-          }
-          placeholder="Email"
-        />
-
-        {/* Phone Input */}
-
-        <CustomTextInput
-          placeholder="Phone no"
-          keyboardType="phone-pad"
-          prefix={
-            <TouchableOpacity
-              style={styles.prefixContainer}
-              onPress={() => setVisible(true)}
-            >
-              {/* ▼ Arrow */}
-              <Icon
-                name="chevron-down-outline"
-                size={16}
-                style={styles.dropdownIcon}
-              />
-
-              {/* +971 */}
-              <Text style={styles.codeText}>+{callingCode}</Text>
-            </TouchableOpacity>
-          }
-        />
-
-        {visible && (
-          <CountryPicker
-            countryCode={countryCode}
-            withFilter
-            withFlag={false}
-            withCallingCode={false}
-            withEmoji={false}
-            visible={visible}
-            onClose={() => setVisible(false)}
-            onSelect={country => {
-              setCountryCode(country.cca2);
-              setCallingCode(country.callingCode[0]);
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContainer}
+      >
+        <View style={styles.logo}>
+          <Image
+            source={require('../assets/BinyanText.png')}
+            style={{
+              width: DeviceHelper.calWidth(184.61),
+              height: DeviceHelper.calWidth(50.46),
             }}
+            resizeMode="contain"
           />
-        )}
-      </View>
+        </View>
 
-      {/*Sign Up Button  Modal*/}
-      <CongratulationModal
-        visible={modalVisible}
-        onClose={() => setModalVisible(false)}
-        onLogin={() => navigation.navigate('SignIn')}
-      />
+        <Text style={styles.title}>Sign up</Text>
 
-      <Button
-        onPress={() => setModalVisible(true)}
-        title="Sign in"
-        stylebtn={styles.btn}
-        styleText={styles.btntext}
-      />
+        {/* Name */}
 
-      {/*Terms */}
+        <View style={styles.inputContainer}>
+          <CustomTextInput
+            style={{ borderRadius: theme.radius.md }}
+            icon={
+              <Icon
+                name="person-outline"
+                size={20}
+                color={theme.colors.black}
+              />
+            }
+            placeholder="First Name"
+            value={name}
+            onChangeText={setName}
+          />
 
-      <View style={styles.termsContainer}>
-        <Checkbox />
-        <Text style={styles.termsTitle}>If you continue, you agree to the</Text>
+          {/* Password */}
 
-        <LinkText
-          title="Terms of Service"
-          style={styles.termsText}
-          onPress={() => console.log('Terms of Service')}
+          <CustomTextInput
+            style={{ borderRadius: theme.radius.md }}
+            icon={
+              <Icon name="key-outline" size={20} color={theme.colors.black} />
+            }
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
+
+          {/* Email */}
+
+          <CustomTextInput
+            style={{ borderRadius: theme.radius.md }}
+            icon={
+              <Icon name="mail-outline" size={20} color={theme.colors.black} />
+            }
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+          />
+
+          {/* Phone Input */}
+
+          <CustomTextInput
+            style={{ borderRadius: theme.radius.md }}
+            placeholder="Phone no"
+            keyboardType="phone-pad"
+            value={phone}
+            onChangeText={setPhone}
+            prefix={
+              <TouchableOpacity
+                style={styles.prefixContainer}
+                onPress={() => setVisible(true)}
+              >
+                {/* ▼ Arrow */}
+                <Icon
+                  name="chevron-down-outline"
+                  size={16}
+                  style={styles.dropdownIcon}
+                />
+
+                {/* +971 */}
+                <Text style={styles.codeText}>+{callingCode}</Text>
+              </TouchableOpacity>
+            }
+          />
+
+          {visible && (
+            <CountryPicker
+              countryCode={countryCode}
+              withFilter
+              withFlag={false}
+              withCallingCode={false}
+              withEmoji={false}
+              visible={visible}
+              onClose={() => setVisible(false)}
+              onSelect={country => {
+                setCountryCode(country.cca2);
+                setCallingCode(country.callingCode[0]);
+              }}
+            />
+          )}
+        </View>
+
+        {/*Sign Up Button  Modal*/}
+        <CongratulationModal
+          visible={modalVisible}
+          onClose={() => setModalVisible(false)}
+          onLogin={() => navigation.navigate('SignIn')}
         />
-      </View>
 
-      {/*Policy */}
-
-      <View style={styles.policyContainer}>
-        <Checkbox />
-        <Text style={styles.policyTitle}>
-          If you continue, you agree to the
-        </Text>
-
-        <LinkText
-          title="Privacy Policy"
-          style={styles.policyText}
-          onPress={() => console.log('Privacy Policy')}
+        <Button
+          onPress={handleSignup}
+          title="Sign up"
+          stylebtn={styles.btn}
+          styleText={styles.btntext}
         />
-      </View>
 
-      {/*Already have a account */}
+        {/*Terms */}
 
-      <View style={styles.loginContainer}>
-        <Text style={styles.loginTitle}>Already have an account? </Text>
-        <LinkText
-          title="Log in!"
-          style={styles.loginText}
-          onPress={() => navigation.navigate('SignIn')}
-        />
-      </View>
+        <View style={styles.termsContainer}>
+          <Checkbox />
+          <Text style={styles.termsTitle}>
+            If you continue, you agree to the
+          </Text>
 
-      {/*Or */}
+          <LinkText
+            title="Terms of Service"
+            style={styles.termsText}
+            onPress={() => console.log('Terms of Service')}
+          />
+        </View>
 
-      <View style={styles.containerOr}>
-        <View style={styles.line} />
-        <Text style={styles.textOR}>OR</Text>
-        <View style={styles.line} />
-      </View>
+        {/*Policy */}
 
-      {/*Social Icon Button */}
+        <View style={styles.policyContainer}>
+          <Checkbox />
+          <Text style={styles.policyTitle}>
+            If you continue, you agree to the
+          </Text>
 
-      <View style={styles.socailBtn}>
-        <SocialIconButton name="apple" style={styles.scoialIconApple} />
+          <LinkText
+            title="Privacy Policy"
+            style={styles.policyText}
+            onPress={() => console.log('Privacy Policy')}
+          />
+        </View>
 
-        <SocialIconButton name="google" style={styles.scoialIconGoogle} />
+        {/*Already have a account */}
 
-        <SocialIconButton name="facebook" style={styles.scoialIconFacebook} />
-      </View>
+        <View style={styles.loginContainer}>
+          <Text style={styles.loginTitle}>Already have an account? </Text>
+          <LinkText
+            title="Log in!"
+            style={styles.loginText}
+            onPress={() => navigation.navigate('SignIn')}
+          />
+        </View>
 
-      {/*Continue as a Guest */}
+        {/*Or */}
 
-      <View style={styles.bottom}>
-        <Text style={styles.bottomText}>Continue as </Text>
+        <View style={styles.containerOr}>
+          <View style={styles.line} />
+          <Text style={styles.textOR}>OR</Text>
+          <View style={styles.line} />
+        </View>
 
-        <LinkText
-          title="Guest"
-          style={styles.guestText}
-          onPress={() => navigation.navigate('MainTabs')}
-        />
-      </View>
-    </View>
+        {/*Social Icon Button */}
+
+        <View style={styles.socailBtn}>
+          <SocialIconButton name="apple" style={styles.scoialIconApple} />
+
+          <SocialIconButton name="google" style={styles.scoialIconGoogle} />
+
+          <SocialIconButton name="facebook" style={styles.scoialIconFacebook} />
+        </View>
+
+        {/*Continue as a Guest */}
+
+        <View style={styles.bottom}>
+          <Text style={styles.bottomText}>Continue as </Text>
+
+          <LinkText
+            title="Guest"
+            style={styles.guestText}
+            onPress={() => navigation.navigate('MainTabs')}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-export default SignInScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: theme.spacing.lg,
+    paddingVertical: theme.spacing.md,
+    paddingHorizontal: theme.spacing.xl,
+  },
+  scrollContainer: {
+    flexGrow: 1,
   },
 
   logo: {
     alignItems: 'center',
-    marginTop: theme.spacing.xxxl,
   },
 
   title: {
@@ -254,12 +313,12 @@ const styles = StyleSheet.create({
 
   loginTitle: {
     color: theme.colors.textSecondary,
-    fontSize: theme.typography.medium,
+    fontSize: theme.typography.regular,
   },
 
   loginText: {
     color: theme.colors.textPrimary,
-    fontSize: theme.typography.medium,
+    fontSize: theme.typography.regular,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
   },
@@ -272,12 +331,12 @@ const styles = StyleSheet.create({
 
   termsTitle: {
     color: theme.colors.textSecondary,
-    fontSize: theme.typography.regular,
+    fontSize: theme.typography.small,
   },
 
   termsText: {
     color: theme.colors.textPrimary,
-    fontSize: theme.typography.regular,
+    fontSize: theme.typography.small,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
   },
@@ -286,16 +345,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: theme.spacing.sm,
     justifyContent: 'center',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
   },
 
   policyTitle: {
+    flexShrink: 1,
     color: theme.colors.textSecondary,
-    fontSize: theme.typography.regular,
+    fontSize: theme.typography.small,
   },
 
   policyText: {
     color: theme.colors.black,
-    fontSize: theme.typography.regular,
+    fontSize: theme.typography.small,
     marginLeft: theme.spacing.sm,
     fontWeight: theme.fontWeight.medium,
   },
@@ -309,8 +371,8 @@ const styles = StyleSheet.create({
   textOR: {
     marginHorizontal: theme.spacing.lg,
     color: theme.colors.textSecondary,
-    fontWeight: theme.fontWeight.medium,
-    fontSize: theme.typography.medium,
+    fontWeight: theme.fontWeight.regular,
+    fontSize: theme.typography.regular,
   },
 
   line: {
@@ -320,42 +382,42 @@ const styles = StyleSheet.create({
   },
 
   socailBtn: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: theme.spacing.xxl,
   },
 
   scoialIconApple: {
-    width: 22,
-    height: 24,
+    width: DeviceHelper.calWidth(20),
+    height: DeviceHelper.calHeight(18),
   },
 
   scoialIconGoogle: {
-    width: 26,
-    height: 24,
+    height: DeviceHelper.calHeight(22),
+    width: DeviceHelper.calWidth(20),
   },
 
   scoialIconFacebook: {
-    width: 26,
-    height: 26,
+    width: DeviceHelper.calWidth(22),
+    height: DeviceHelper.calHeight(22),
   },
 
   bottom: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: theme.spacing.md,
+    marginTop: 'auto',
+    paddingTop: theme.spacing.xxxl,
+    paddingBottom: theme.spacing.md,
   },
   bottomText: {
     fontSize: theme.typography.xl,
     color: theme.colors.textSecondary,
+    fontFamily: theme.fontFamily.medium,
   },
   guestText: {
     fontSize: theme.typography.xl,
     color: theme.colors.textPrimary,
-    fontWeight: theme.fontWeight.medium,
-  
+    fontFamily: theme.fontFamily.medium,
   },
-
 });

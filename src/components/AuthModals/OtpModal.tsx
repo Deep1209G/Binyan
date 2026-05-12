@@ -1,17 +1,12 @@
 import React from 'react';
-import {
-  Modal,
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-} from 'react-native';
+import { Modal, View, Text, TextInput, StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
 import Button from '../Button';
 import LinkText from '../LinkText';
 import PressableIcon from '../Home/PressableIcon';
+import { DeviceHelper } from '../../utils/DeviceHelper';
 
 type OtpModalProps = {
   visible: boolean;
@@ -29,14 +24,9 @@ const OtpModal = ({
   onConfirm,
 }: OtpModalProps) => {
   return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={visible}
-    >
+    <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-
           <PressableIcon
             name="close-outline"
             size={25}
@@ -44,9 +34,7 @@ const OtpModal = ({
             style={styles.backbtn}
           />
 
-          <Text style={styles.modaltitle}>
-            Enter the code sent
-          </Text>
+          <Text style={styles.modaltitle}>Enter the code sent</Text>
 
           <View style={styles.otpContainer}>
             {otp.map((digit, index) => (
@@ -66,9 +54,7 @@ const OtpModal = ({
           </View>
 
           <View style={styles.otpmodallower}>
-            <Text style={styles.otpModalText1}>
-              Confirmation code sent to{' '}
-            </Text>
+            <Text style={styles.otpModalText1}>Confirmation code sent to </Text>
 
             <LinkText
               title={'abc@gmail.com'}
@@ -95,7 +81,6 @@ const OtpModal = ({
             stylebtn={styles.otpmodalbtn}
             styleText={styles.btntext}
           />
-
         </View>
       </View>
     </Modal>
@@ -115,7 +100,7 @@ const styles = StyleSheet.create({
   modalView: {
     padding: theme.spacing.lg,
     height: 320,
-    width: 343,
+    width: DeviceHelper.calWidth(343),
     backgroundColor: theme.colors.winterSky,
     borderRadius: theme.radius.md,
   },
@@ -138,7 +123,7 @@ const styles = StyleSheet.create({
   },
 
   otpInput: {
-    width: 55,
+    width: DeviceHelper.calWidth(55),
     height: 55,
     borderWidth: 1,
     borderColor: theme.colors.border,
@@ -179,7 +164,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: theme.spacing.xxl,
     height: 46,
-    width: 322,
+    width: DeviceHelper.calWidth(322),
   },
 
   btntext: {

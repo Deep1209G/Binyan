@@ -5,6 +5,7 @@ import theme from '../../theme';
 import Images from '../../assets/images/image';
 import Button from '../Button';
 import PressableIcon from '../Home/PressableIcon';
+import { DeviceHelper } from '../../utils/DeviceHelper';
 
 type Props = {
   visible: boolean;
@@ -60,7 +61,8 @@ const styles = StyleSheet.create({
   },
 
   modalView: {
-    width: 343,
+    height: 340,
+    width: DeviceHelper.calWidth(343),
     padding: theme.spacing.lg,
     backgroundColor: theme.colors.winterSky ,
     borderRadius: theme.radius.md,
@@ -91,7 +93,9 @@ const styles = StyleSheet.create({
   },
 
   modalbtn: {
-    marginTop: theme.spacing.xl,
+    alignSelf: 'center',
+    marginTop: theme.spacing.xxxl,
     height: 46,
+    width: DeviceHelper.calWidth(322),
   },
 });
