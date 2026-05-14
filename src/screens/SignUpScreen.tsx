@@ -20,8 +20,8 @@ import CountryPicker, { CountryCode } from 'react-native-country-picker-modal';
 import Checkbox from '../components/CheckBox';
 import Button from '../components/Button';
 import CongratulationModal from '../components/AuthModals/CongratulationModal';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DeviceHelper } from '../utils/DeviceHelper';
+import { signup } from '../api/apiService';
 
 const SignUpScreen = () => {
   const navigation =
@@ -34,20 +34,21 @@ const SignUpScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
+
   const handleSignup = async () => {
     try {
-      const userData = {
+      const res = await signup({
         name,
         email,
         password,
         phone,
-      };
+      });
 
-      await AsyncStorage.setItem('user', JSON.stringify(userData));
+      console.log(res);
 
-      console.log('User Saved');
-
-      setModalVisible(true);
+      if (res.message === 'Signup successful') {
+        setModalVisible(true);
+      }
     } catch (error) {
       console.log(error);
     }

@@ -17,6 +17,7 @@ import ResetPasswordModal from '../components/AuthModals/ResetPasswordModal';
 import SuccessModal from '../components/AuthModals/SuccessModal';
 import { DeviceHelper } from '../utils/DeviceHelper';
 
+
 const SignInScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -25,8 +26,13 @@ const SignInScreen = () => {
   const [checkEmailModalVisible, setCheckEmailModalVisible] = useState(false);
   const [resetModalVisible, setResetModalVisible] = useState(false);
   const [successModalVisible, setSuccessModalVisible] = useState(false);
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [otp, setOtp] = useState(['', '', '', '']);
+
+  const handleLogin = async () => {
+  
+};
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -53,6 +59,8 @@ const SignInScreen = () => {
             <Icon name="mail-outline" size={20} color={theme.colors.black} />
           }
           placeholder="Email Address or phone number"
+          value={email}
+          onChangeText={setEmail}
         />
 
         {/*Password */}
@@ -65,6 +73,9 @@ const SignInScreen = () => {
           rightIcon={
             <Icon name="eye-outline" size={20} color={theme.colors.black} />
           }
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
         />
       </View>
 
@@ -128,7 +139,7 @@ const SignInScreen = () => {
 
       {/*Sign In Button */}
       <Button
-        onPress={() => navigation.navigate('MainTabs')}
+        onPress={handleLogin}
         title="Sign in"
         stylebtn={styles.btn}
         styleText={styles.btntext}

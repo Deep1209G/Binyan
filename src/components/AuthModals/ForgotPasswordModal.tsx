@@ -33,7 +33,7 @@ const ForgetPasswordModal = ({
           <Text style={styles.modaltitle}>Forget Password</Text>
 
           <Text style={styles.modalsubtitle}>
-            No worries, we’ll send you reset instructions
+            No worries, we'll send you reset instructions
           </Text>
 
           <CustomTextInput
@@ -52,7 +52,7 @@ const ForgetPasswordModal = ({
           />
 
           <View style={styles.modalbottom}>
-            <Text style={styles.modalText1}>Remember Password?</Text>
+            <Text style={styles.modalText1}>Remember Password?{' '}</Text>
 
             <LinkText
               title="Log in!"
